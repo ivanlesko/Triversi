@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8536A99018FB38A800BA8C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A98F18FB38A800BA8C23 /* Foundation.framework */; };
+		8536A99218FB38A800BA8C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99118FB38A800BA8C23 /* CoreGraphics.framework */; };
+		8536A99418FB38A800BA8C23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99318FB38A800BA8C23 /* UIKit.framework */; };
+		8536A99618FB38A800BA8C23 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99518FB38A800BA8C23 /* SpriteKit.framework */; };
+		8536A99C18FB38A800BA8C23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8536A99A18FB38A800BA8C23 /* InfoPlist.strings */; };
+		8536A99E18FB38A800BA8C23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A99D18FB38A800BA8C23 /* main.m */; };
+		8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9A118FB38A800BA8C23 /* AppDelegate.m */; };
+		8536A9A518FB38A800BA8C23 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9A318FB38A800BA8C23 /* Main_iPhone.storyboard */; };
+		8536A9A818FB38A800BA8C23 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9A618FB38A800BA8C23 /* Main_iPad.storyboard */; };
+		8536A9AB18FB38A800BA8C23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9AA18FB38A800BA8C23 /* ViewController.m */; };
+		8536A9B018FB38A800BA8C23 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9AF18FB38A800BA8C23 /* Spaceship.png */; };
+		8536A9B218FB38A800BA8C23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9B118FB38A800BA8C23 /* Images.xcassets */; };
+		8536A9B918FB38A800BA8C23 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A9B818FB38A800BA8C23 /* XCTest.framework */; };
+		8536A9BA18FB38A800BA8C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A98F18FB38A800BA8C23 /* Foundation.framework */; };
+		8536A9BB18FB38A800BA8C23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99318FB38A800BA8C23 /* UIKit.framework */; };
+		8536A9C318FB38A800BA8C23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9C118FB38A800BA8C23 /* InfoPlist.strings */; };
+		8536A9C518FB38A800BA8C23 /* TriversiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9C418FB38A800BA8C23 /* TriversiTests.m */; };
+		8536A9D518FB398100BA8C23 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9D418FB398100BA8C23 /* GameScene.m */; };
+		8536A9DE18FB39BD00BA8C23 /* SKTransition+CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9D718FB39BD00BA8C23 /* SKTransition+CustomTransition.m */; };
+		8536A9DF18FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9D918FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m */; };
+		8536A9E018FB39BD00BA8C23 /* NSString+FilePaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9DB18FB39BD00BA8C23 /* NSString+FilePaths.m */; };
+		8536A9E118FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */; };
+		8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E318FB39C600BA8C23 /* SKButton.m */; };
+		8536A9E718FB3B5900BA8C23 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E618FB3B5900BA8C23 /* Board.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8536A9BC18FB38A800BA8C23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8536A98418FB38A800BA8C23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8536A98B18FB38A800BA8C23;
+			remoteInfo = Triversi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8536A98C18FB38A800BA8C23 /* Triversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Triversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8536A98F18FB38A800BA8C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8536A99118FB38A800BA8C23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8536A99318FB38A800BA8C23 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8536A99518FB38A800BA8C23 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		8536A99918FB38A800BA8C23 /* Triversi-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Triversi-Info.plist"; sourceTree = "<group>"; };
+		8536A99B18FB38A800BA8C23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8536A99D18FB38A800BA8C23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8536A99F18FB38A800BA8C23 /* Triversi-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Triversi-Prefix.pch"; sourceTree = "<group>"; };
+		8536A9A018FB38A800BA8C23 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8536A9A118FB38A800BA8C23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8536A9A418FB38A800BA8C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		8536A9A718FB38A800BA8C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8536A9A918FB38A800BA8C23 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Triversi/ViewController.h; sourceTree = "<group>"; };
+		8536A9AA18FB38A800BA8C23 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Triversi/ViewController.m; sourceTree = "<group>"; };
+		8536A9AF18FB38A800BA8C23 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		8536A9B118FB38A800BA8C23 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8536A9B718FB38A800BA8C23 /* TriversiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriversiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8536A9B818FB38A800BA8C23 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8536A9C018FB38A800BA8C23 /* TriversiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TriversiTests-Info.plist"; sourceTree = "<group>"; };
+		8536A9C218FB38A800BA8C23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8536A9C418FB38A800BA8C23 /* TriversiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriversiTests.m; sourceTree = "<group>"; };
+		8536A9D318FB398100BA8C23 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		8536A9D418FB398100BA8C23 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		8536A9D618FB39BD00BA8C23 /* SKTransition+CustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKTransition+CustomTransition.h"; sourceTree = "<group>"; };
+		8536A9D718FB39BD00BA8C23 /* SKTransition+CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKTransition+CustomTransition.m"; sourceTree = "<group>"; };
+		8536A9D818FB39BD00BA8C23 /* NSNumber+DefaultNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+DefaultNumbers.h"; sourceTree = "<group>"; };
+		8536A9D918FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+DefaultNumbers.m"; sourceTree = "<group>"; };
+		8536A9DA18FB39BD00BA8C23 /* NSString+FilePaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FilePaths.h"; sourceTree = "<group>"; };
+		8536A9DB18FB39BD00BA8C23 /* NSString+FilePaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FilePaths.m"; sourceTree = "<group>"; };
+		8536A9DC18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumberFormatter+CustomFormatters.h"; sourceTree = "<group>"; };
+		8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumberFormatter+CustomFormatters.m"; sourceTree = "<group>"; };
+		8536A9E218FB39C600BA8C23 /* SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKButton.h; sourceTree = "<group>"; };
+		8536A9E318FB39C600BA8C23 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
+		8536A9E518FB3B5900BA8C23 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		8536A9E618FB3B5900BA8C23 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8536A98918FB38A800BA8C23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8536A99218FB38A800BA8C23 /* CoreGraphics.framework in Frameworks */,
+				8536A99418FB38A800BA8C23 /* UIKit.framework in Frameworks */,
+				8536A99618FB38A800BA8C23 /* SpriteKit.framework in Frameworks */,
+				8536A99018FB38A800BA8C23 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8536A9B418FB38A800BA8C23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8536A9B918FB38A800BA8C23 /* XCTest.framework in Frameworks */,
+				8536A9BB18FB38A800BA8C23 /* UIKit.framework in Frameworks */,
+				8536A9BA18FB38A800BA8C23 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8536A98318FB38A800BA8C23 = {
+			isa = PBXGroup;
+			children = (
+				8536A9D118FB38EA00BA8C23 /* Helpers */,
+				8536A9D218FB396E00BA8C23 /* Scenes */,
+				8536A9D018FB38E300BA8C23 /* View Controllers */,
+				8536A9CF18FB38E000BA8C23 /* Sprites */,
+				8536A9CE18FB38DC00BA8C23 /* Models */,
+				8536A99718FB38A800BA8C23 /* Triversi */,
+				8536A9BE18FB38A800BA8C23 /* TriversiTests */,
+				8536A98E18FB38A800BA8C23 /* Frameworks */,
+				8536A98D18FB38A800BA8C23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8536A98D18FB38A800BA8C23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8536A98C18FB38A800BA8C23 /* Triversi.app */,
+				8536A9B718FB38A800BA8C23 /* TriversiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8536A98E18FB38A800BA8C23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8536A98F18FB38A800BA8C23 /* Foundation.framework */,
+				8536A99118FB38A800BA8C23 /* CoreGraphics.framework */,
+				8536A99318FB38A800BA8C23 /* UIKit.framework */,
+				8536A99518FB38A800BA8C23 /* SpriteKit.framework */,
+				8536A9B818FB38A800BA8C23 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8536A99718FB38A800BA8C23 /* Triversi */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9A018FB38A800BA8C23 /* AppDelegate.h */,
+				8536A9A118FB38A800BA8C23 /* AppDelegate.m */,
+				8536A9A318FB38A800BA8C23 /* Main_iPhone.storyboard */,
+				8536A9A618FB38A800BA8C23 /* Main_iPad.storyboard */,
+				8536A9AF18FB38A800BA8C23 /* Spaceship.png */,
+				8536A9B118FB38A800BA8C23 /* Images.xcassets */,
+				8536A99818FB38A800BA8C23 /* Supporting Files */,
+			);
+			path = Triversi;
+			sourceTree = "<group>";
+		};
+		8536A99818FB38A800BA8C23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8536A99918FB38A800BA8C23 /* Triversi-Info.plist */,
+				8536A99A18FB38A800BA8C23 /* InfoPlist.strings */,
+				8536A99D18FB38A800BA8C23 /* main.m */,
+				8536A99F18FB38A800BA8C23 /* Triversi-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8536A9BE18FB38A800BA8C23 /* TriversiTests */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9C418FB38A800BA8C23 /* TriversiTests.m */,
+				8536A9BF18FB38A800BA8C23 /* Supporting Files */,
+			);
+			path = TriversiTests;
+			sourceTree = "<group>";
+		};
+		8536A9BF18FB38A800BA8C23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9C018FB38A800BA8C23 /* TriversiTests-Info.plist */,
+				8536A9C118FB38A800BA8C23 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8536A9CE18FB38DC00BA8C23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9E518FB3B5900BA8C23 /* Board.h */,
+				8536A9E618FB3B5900BA8C23 /* Board.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8536A9CF18FB38E000BA8C23 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		8536A9D018FB38E300BA8C23 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9A918FB38A800BA8C23 /* ViewController.h */,
+				8536A9AA18FB38A800BA8C23 /* ViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8536A9D118FB38EA00BA8C23 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9D618FB39BD00BA8C23 /* SKTransition+CustomTransition.h */,
+				8536A9D718FB39BD00BA8C23 /* SKTransition+CustomTransition.m */,
+				8536A9D818FB39BD00BA8C23 /* NSNumber+DefaultNumbers.h */,
+				8536A9D918FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m */,
+				8536A9DA18FB39BD00BA8C23 /* NSString+FilePaths.h */,
+				8536A9DB18FB39BD00BA8C23 /* NSString+FilePaths.m */,
+				8536A9DC18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.h */,
+				8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */,
+				8536A9E218FB39C600BA8C23 /* SKButton.h */,
+				8536A9E318FB39C600BA8C23 /* SKButton.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		8536A9D218FB396E00BA8C23 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9D318FB398100BA8C23 /* GameScene.h */,
+				8536A9D418FB398100BA8C23 /* GameScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8536A98B18FB38A800BA8C23 /* Triversi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8536A9C818FB38A800BA8C23 /* Build configuration list for PBXNativeTarget "Triversi" */;
+			buildPhases = (
+				8536A98818FB38A800BA8C23 /* Sources */,
+				8536A98918FB38A800BA8C23 /* Frameworks */,
+				8536A98A18FB38A800BA8C23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Triversi;
+			productName = Triversi;
+			productReference = 8536A98C18FB38A800BA8C23 /* Triversi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8536A9B618FB38A800BA8C23 /* TriversiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8536A9CB18FB38A800BA8C23 /* Build configuration list for PBXNativeTarget "TriversiTests" */;
+			buildPhases = (
+				8536A9B318FB38A800BA8C23 /* Sources */,
+				8536A9B418FB38A800BA8C23 /* Frameworks */,
+				8536A9B518FB38A800BA8C23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8536A9BD18FB38A800BA8C23 /* PBXTargetDependency */,
+			);
+			name = TriversiTests;
+			productName = TriversiTests;
+			productReference = 8536A9B718FB38A800BA8C23 /* TriversiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8536A98418FB38A800BA8C23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = ivonski;
+				TargetAttributes = {
+					8536A9B618FB38A800BA8C23 = {
+						TestTargetID = 8536A98B18FB38A800BA8C23;
+					};
+				};
+			};
+			buildConfigurationList = 8536A98718FB38A800BA8C23 /* Build configuration list for PBXProject "Triversi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8536A98318FB38A800BA8C23;
+			productRefGroup = 8536A98D18FB38A800BA8C23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8536A98B18FB38A800BA8C23 /* Triversi */,
+				8536A9B618FB38A800BA8C23 /* TriversiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8536A98A18FB38A800BA8C23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8536A9B018FB38A800BA8C23 /* Spaceship.png in Resources */,
+				8536A9B218FB38A800BA8C23 /* Images.xcassets in Resources */,
+				8536A9A818FB38A800BA8C23 /* Main_iPad.storyboard in Resources */,
+				8536A9A518FB38A800BA8C23 /* Main_iPhone.storyboard in Resources */,
+				8536A99C18FB38A800BA8C23 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8536A9B518FB38A800BA8C23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8536A9C318FB38A800BA8C23 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8536A98818FB38A800BA8C23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8536A9AB18FB38A800BA8C23 /* ViewController.m in Sources */,
+				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
+				8536A9E118FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m in Sources */,
+				8536A9D518FB398100BA8C23 /* GameScene.m in Sources */,
+				8536A9E718FB3B5900BA8C23 /* Board.m in Sources */,
+				8536A9DE18FB39BD00BA8C23 /* SKTransition+CustomTransition.m in Sources */,
+				8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */,
+				8536A9DF18FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m in Sources */,
+				8536A9E018FB39BD00BA8C23 /* NSString+FilePaths.m in Sources */,
+				8536A99E18FB38A800BA8C23 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8536A9B318FB38A800BA8C23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8536A9C518FB38A800BA8C23 /* TriversiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8536A9BD18FB38A800BA8C23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8536A98B18FB38A800BA8C23 /* Triversi */;
+			targetProxy = 8536A9BC18FB38A800BA8C23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8536A99A18FB38A800BA8C23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8536A99B18FB38A800BA8C23 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8536A9A318FB38A800BA8C23 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8536A9A418FB38A800BA8C23 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8536A9A618FB38A800BA8C23 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8536A9A718FB38A800BA8C23 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		8536A9C118FB38A800BA8C23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8536A9C218FB38A800BA8C23 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8536A9C618FB38A800BA8C23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8536A9C718FB38A800BA8C23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8536A9C918FB38A800BA8C23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Triversi/Triversi-Prefix.pch";
+				INFOPLIST_FILE = "Triversi/Triversi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8536A9CA18FB38A800BA8C23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Triversi/Triversi-Prefix.pch";
+				INFOPLIST_FILE = "Triversi/Triversi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8536A9CC18FB38A800BA8C23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Triversi.app/Triversi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Triversi/Triversi-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TriversiTests/TriversiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8536A9CD18FB38A800BA8C23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Triversi.app/Triversi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Triversi/Triversi-Prefix.pch";
+				INFOPLIST_FILE = "TriversiTests/TriversiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8536A98718FB38A800BA8C23 /* Build configuration list for PBXProject "Triversi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8536A9C618FB38A800BA8C23 /* Debug */,
+				8536A9C718FB38A800BA8C23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8536A9C818FB38A800BA8C23 /* Build configuration list for PBXNativeTarget "Triversi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8536A9C918FB38A800BA8C23 /* Debug */,
+				8536A9CA18FB38A800BA8C23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8536A9CB18FB38A800BA8C23 /* Build configuration list for PBXNativeTarget "TriversiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8536A9CC18FB38A800BA8C23 /* Debug */,
+				8536A9CD18FB38A800BA8C23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8536A98418FB38A800BA8C23 /* Project object */;
+}

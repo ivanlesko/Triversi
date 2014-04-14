@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 ivonski. All rights reserved.
 //
 
-#import "Triangle.h"
+#import "TrianglePiece.h"
 
-@implementation Triangle
+@implementation TrianglePiece
 
-+ (Triangle *)createTriangleAtPosition:(CGPoint)position upSideDown:(BOOL)upSideDown {
-    Triangle *newTriangle = [Triangle node];
++ (TrianglePiece *)createTriangleAtPosition:(CGPoint)position upSideDown:(BOOL)upSideDown {
+    TrianglePiece *newTriangle = [TrianglePiece node];
     newTriangle.position  = position;
     newTriangle.name = @"triangle";
     
@@ -26,6 +26,7 @@
         [path addLineToPoint:CGPointMake(sideLength / 2.0, height / 2.0)];
         [path addLineToPoint:CGPointMake(0, -height / 2.0)];
         
+        
         newTriangle.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
     } else {
         [path moveToPoint:CGPointMake(0, height / 2.0)];
@@ -35,6 +36,8 @@
         
         newTriangle.fillColor = [SKColor colorWithHexString:@"395c78"];
     }
+    
+    newTriangle.touchableArea = path;
     newTriangle.antialiased = YES;
     newTriangle.path = path.CGPath;
     newTriangle.lineWidth = 0.0f;

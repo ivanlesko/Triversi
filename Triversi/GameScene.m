@@ -7,7 +7,7 @@
 //
 
 #import "GameScene.h"
-#import "Triangle.h"
+#import "TrianglePiece.h"
 
 @implementation GameScene
 
@@ -16,15 +16,15 @@
         self.triTouch = NO;
         
         SKNode *grid = [SKNode node];
+        grid.name = @"triangleGrid";
         grid.position = CGPointMake(size.width / 2.0, size.height / 2.0);
-        NSLog(@"grid position: %@", NSStringFromCGPoint(grid.position));
         
         [self addChild:grid];
         
         int rows = 8;
         int columns = 9;
         
-        Triangle *placeholderTri = [Triangle createTriangleAtPosition:CGPointMake(0, 0) upSideDown:YES];
+        TrianglePiece *placeholderTri = [TrianglePiece createTriangleAtPosition:CGPointMake(0, 0) upSideDown:YES];
         CGFloat spacing = placeholderTri.frame.size.width / 2.0;
         
         [self addChild:placeholderTri];
@@ -35,14 +35,14 @@
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                Triangle *newTri;
+                TrianglePiece *newTri;
                 if (j % 2 == 0) {
                     // even numbered row
-                    newTri = [Triangle createTriangleAtPosition:newOrigin upSideDown:upSideDown];
+                    newTri = [TrianglePiece createTriangleAtPosition:newOrigin upSideDown:upSideDown];
                 }
                 else {
                     // odd number row
-                    newTri = [Triangle createTriangleAtPosition:newOrigin upSideDown:upSideDown];
+                    newTri = [TrianglePiece createTriangleAtPosition:newOrigin upSideDown:upSideDown];
                 }
                 newTri.name = [NSString stringWithFormat:@"triangle%d%d", i, j];
                 upSideDown = !upSideDown;
@@ -59,7 +59,17 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
+    UITouch *touch = [touches anyObject];
+    CGPoint position = [touch locationInNode:self];
+    NSArray *nodes = [self nodesAtPoint:position];
+    for (TrianglePiece *triangle in nodes) {
+        if ([triangle isKindOfClass:[TrianglePiece class]]) {
+            position = [touch locationInNode:triangle];
+            if ([triangle.touchableArea containsPoint:position]) {
+                NSLog(@"triangle: %@", triangle);
+            }
+        }
+    }
 }
 
 @end

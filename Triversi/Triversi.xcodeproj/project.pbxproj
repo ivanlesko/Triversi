@@ -30,7 +30,7 @@
 		8536A9E118FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */; };
 		8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E318FB39C600BA8C23 /* SKButton.m */; };
 		8536A9E718FB3B5900BA8C23 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E618FB3B5900BA8C23 /* Board.m */; };
-		8536A9EA18FB427000BA8C23 /* Triangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E918FB427000BA8C23 /* Triangle.m */; };
+		8536A9EA18FB427000BA8C23 /* TrianglePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E918FB427000BA8C23 /* TrianglePiece.m */; };
 		8536A9ED18FB64B900BA8C23 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9EC18FB64B900BA8C23 /* Game.m */; };
 		8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */; };
 		8536A9F318FB6D4000BA8C23 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F218FB6D4000BA8C23 /* Player.m */; };
@@ -83,8 +83,8 @@
 		8536A9E318FB39C600BA8C23 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
 		8536A9E518FB3B5900BA8C23 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		8536A9E618FB3B5900BA8C23 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		8536A9E818FB427000BA8C23 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
-		8536A9E918FB427000BA8C23 /* Triangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Triangle.m; sourceTree = "<group>"; };
+		8536A9E818FB427000BA8C23 /* TrianglePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrianglePiece.h; sourceTree = "<group>"; };
+		8536A9E918FB427000BA8C23 /* TrianglePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrianglePiece.m; sourceTree = "<group>"; };
 		8536A9EB18FB64B900BA8C23 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		8536A9EC18FB64B900BA8C23 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		8536A9EE18FB6D3600BA8C23 /* PlayerScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScore.h; sourceTree = "<group>"; };
@@ -220,8 +220,8 @@
 		8536A9CF18FB38E000BA8C23 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				8536A9E818FB427000BA8C23 /* Triangle.h */,
-				8536A9E918FB427000BA8C23 /* Triangle.m */,
+				8536A9E818FB427000BA8C23 /* TrianglePiece.h */,
+				8536A9E918FB427000BA8C23 /* TrianglePiece.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */,
-				8536A9EA18FB427000BA8C23 /* Triangle.m in Sources */,
+				8536A9EA18FB427000BA8C23 /* TrianglePiece.m in Sources */,
 				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
 				8536A9ED18FB64B900BA8C23 /* Game.m in Sources */,
 				8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */,

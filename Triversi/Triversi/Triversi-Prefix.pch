@@ -13,4 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "SKTransition+CustomTransition.h"
+    #import "SKButton.h"
+    #import "NSNumber+DefaultNumbers.h"
+    #import "NSString+FilePaths.h"
+    #import "NSNumberFormatter+CustomFormatters.h"
+    #import "UIColor+HexColors.h"
+
 #endif

@@ -1,5 +1,5 @@
 //
-//  GameScene.h
+//  Triangle.h
 //  Triversi
 //
 //  Created by Luda on 4/13/14.
@@ -8,8 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface GameScene : SKScene
+@interface Triangle : SKShapeNode
 
-@property (nonatomic) BOOL triTouch;
++ (Triangle *)createTriangleAtPosition:(CGPoint)position upSideDown:(BOOL)upSideDown;
 
 @end

@@ -16,7 +16,6 @@
 		8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9A118FB38A800BA8C23 /* AppDelegate.m */; };
 		8536A9A518FB38A800BA8C23 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9A318FB38A800BA8C23 /* Main_iPhone.storyboard */; };
 		8536A9A818FB38A800BA8C23 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9A618FB38A800BA8C23 /* Main_iPad.storyboard */; };
-		8536A9AB18FB38A800BA8C23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9AA18FB38A800BA8C23 /* ViewController.m */; };
 		8536A9B018FB38A800BA8C23 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9AF18FB38A800BA8C23 /* Spaceship.png */; };
 		8536A9B218FB38A800BA8C23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8536A9B118FB38A800BA8C23 /* Images.xcassets */; };
 		8536A9B918FB38A800BA8C23 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A9B818FB38A800BA8C23 /* XCTest.framework */; };
@@ -31,6 +30,12 @@
 		8536A9E118FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */; };
 		8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E318FB39C600BA8C23 /* SKButton.m */; };
 		8536A9E718FB3B5900BA8C23 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E618FB3B5900BA8C23 /* Board.m */; };
+		8536A9EA18FB427000BA8C23 /* Triangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E918FB427000BA8C23 /* Triangle.m */; };
+		8536A9ED18FB64B900BA8C23 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9EC18FB64B900BA8C23 /* Game.m */; };
+		8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */; };
+		8536A9F318FB6D4000BA8C23 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F218FB6D4000BA8C23 /* Player.m */; };
+		8536A9F718FB7D4F00BA8C23 /* UIColor+HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */; };
+		8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +62,6 @@
 		8536A9A118FB38A800BA8C23 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8536A9A418FB38A800BA8C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		8536A9A718FB38A800BA8C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		8536A9A918FB38A800BA8C23 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Triversi/ViewController.h; sourceTree = "<group>"; };
-		8536A9AA18FB38A800BA8C23 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Triversi/ViewController.m; sourceTree = "<group>"; };
 		8536A9AF18FB38A800BA8C23 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		8536A9B118FB38A800BA8C23 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8536A9B718FB38A800BA8C23 /* TriversiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriversiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +83,18 @@
 		8536A9E318FB39C600BA8C23 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
 		8536A9E518FB3B5900BA8C23 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		8536A9E618FB3B5900BA8C23 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		8536A9E818FB427000BA8C23 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
+		8536A9E918FB427000BA8C23 /* Triangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Triangle.m; sourceTree = "<group>"; };
+		8536A9EB18FB64B900BA8C23 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		8536A9EC18FB64B900BA8C23 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		8536A9EE18FB6D3600BA8C23 /* PlayerScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScore.h; sourceTree = "<group>"; };
+		8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScore.m; sourceTree = "<group>"; };
+		8536A9F118FB6D4000BA8C23 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		8536A9F218FB6D4000BA8C23 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		8536A9F518FB7D4F00BA8C23 /* UIColor+HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColors.h"; sourceTree = "<group>"; };
+		8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColors.m"; sourceTree = "<group>"; };
+		8536A9FB18FB802A00BA8C23 /* TriversiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriversiViewController.h; sourceTree = "<group>"; };
+		8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriversiViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +125,7 @@
 		8536A98318FB38A800BA8C23 = {
 			isa = PBXGroup;
 			children = (
+				8536A9F418FB7D3600BA8C23 /* Categories */,
 				8536A9D118FB38EA00BA8C23 /* Helpers */,
 				8536A9D218FB396E00BA8C23 /* Scenes */,
 				8536A9D018FB38E300BA8C23 /* View Controllers */,
@@ -191,6 +207,12 @@
 			children = (
 				8536A9E518FB3B5900BA8C23 /* Board.h */,
 				8536A9E618FB3B5900BA8C23 /* Board.m */,
+				8536A9EB18FB64B900BA8C23 /* Game.h */,
+				8536A9EC18FB64B900BA8C23 /* Game.m */,
+				8536A9EE18FB6D3600BA8C23 /* PlayerScore.h */,
+				8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */,
+				8536A9F118FB6D4000BA8C23 /* Player.h */,
+				8536A9F218FB6D4000BA8C23 /* Player.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -198,6 +220,8 @@
 		8536A9CF18FB38E000BA8C23 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				8536A9E818FB427000BA8C23 /* Triangle.h */,
+				8536A9E918FB427000BA8C23 /* Triangle.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -205,8 +229,8 @@
 		8536A9D018FB38E300BA8C23 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8536A9A918FB38A800BA8C23 /* ViewController.h */,
-				8536A9AA18FB38A800BA8C23 /* ViewController.m */,
+				8536A9FB18FB802A00BA8C23 /* TriversiViewController.h */,
+				8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -214,14 +238,6 @@
 		8536A9D118FB38EA00BA8C23 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8536A9D618FB39BD00BA8C23 /* SKTransition+CustomTransition.h */,
-				8536A9D718FB39BD00BA8C23 /* SKTransition+CustomTransition.m */,
-				8536A9D818FB39BD00BA8C23 /* NSNumber+DefaultNumbers.h */,
-				8536A9D918FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m */,
-				8536A9DA18FB39BD00BA8C23 /* NSString+FilePaths.h */,
-				8536A9DB18FB39BD00BA8C23 /* NSString+FilePaths.m */,
-				8536A9DC18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.h */,
-				8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */,
 				8536A9E218FB39C600BA8C23 /* SKButton.h */,
 				8536A9E318FB39C600BA8C23 /* SKButton.m */,
 			);
@@ -235,6 +251,23 @@
 				8536A9D418FB398100BA8C23 /* GameScene.m */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		8536A9F418FB7D3600BA8C23 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8536A9D618FB39BD00BA8C23 /* SKTransition+CustomTransition.h */,
+				8536A9D718FB39BD00BA8C23 /* SKTransition+CustomTransition.m */,
+				8536A9D818FB39BD00BA8C23 /* NSNumber+DefaultNumbers.h */,
+				8536A9D918FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m */,
+				8536A9DA18FB39BD00BA8C23 /* NSString+FilePaths.h */,
+				8536A9DB18FB39BD00BA8C23 /* NSString+FilePaths.m */,
+				8536A9DC18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.h */,
+				8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */,
+				8536A9F518FB7D4F00BA8C23 /* UIColor+HexColors.h */,
+				8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,8 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8536A9AB18FB38A800BA8C23 /* ViewController.m in Sources */,
+				8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */,
+				8536A9EA18FB427000BA8C23 /* Triangle.m in Sources */,
 				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
+				8536A9ED18FB64B900BA8C23 /* Game.m in Sources */,
+				8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */,
 				8536A9E118FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m in Sources */,
 				8536A9D518FB398100BA8C23 /* GameScene.m in Sources */,
 				8536A9E718FB3B5900BA8C23 /* Board.m in Sources */,
@@ -345,6 +381,8 @@
 				8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */,
 				8536A9DF18FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m in Sources */,
 				8536A9E018FB39BD00BA8C23 /* NSString+FilePaths.m in Sources */,
+				8536A9F318FB6D4000BA8C23 /* Player.m in Sources */,
+				8536A9F718FB7D4F00BA8C23 /* UIColor+HexColors.m in Sources */,
 				8536A99E18FB38A800BA8C23 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

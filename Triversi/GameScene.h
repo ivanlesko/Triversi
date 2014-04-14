@@ -10,6 +10,4 @@
 
 @interface GameScene : SKScene
 
-@property (nonatomic) BOOL triTouch;
-
 @end

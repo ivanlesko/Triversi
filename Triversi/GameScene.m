@@ -13,7 +13,6 @@
 
 - (id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        self.triTouch = NO;
         
         SKNode *grid = [SKNode node];
         grid.name = @"triangleGrid";
@@ -24,7 +23,7 @@
         int rows = 8;
         int columns = 9;
         
-        TrianglePiece *placeholderTri = [TrianglePiece createTriangleAtPosition:CGPointMake(0, 0) upSideDown:YES];
+        TrianglePiece *placeholderTri = [TrianglePiece createTriangleAtPosition:CGPointMake(0, 0) withPieceType:kTRTrianglePieceTypeNeutral upSideDown:NO];
         CGFloat spacing = placeholderTri.frame.size.width / 2.0;
         
         [self addChild:placeholderTri];
@@ -38,13 +37,15 @@
                 TrianglePiece *newTri;
                 if (j % 2 == 0) {
                     // even numbered row
-                    newTri = [TrianglePiece createTriangleAtPosition:newOrigin upSideDown:upSideDown];
+                    newTri = [TrianglePiece createTriangleAtPosition:newOrigin withPieceType:kTRTrianglePieceTypeBlue upSideDown:upSideDown];
                 }
                 else {
                     // odd number row
-                    newTri = [TrianglePiece createTriangleAtPosition:newOrigin upSideDown:upSideDown];
+                    newTri = [TrianglePiece createTriangleAtPosition:newOrigin withPieceType:kTRTrianglePieceTypeRed upSideDown:upSideDown];
                 }
-                newTri.name = [NSString stringWithFormat:@"triangle%d%d", i, j];
+                newTri.name   = [NSString stringWithFormat:@"triangle%d%d", i, j];
+                newTri.row    = i;
+                newTri.column = j;
                 upSideDown = !upSideDown;
                 [grid addChild:newTri];
                 newOrigin = CGPointMake(newOrigin.x + spacing, newOrigin.y);

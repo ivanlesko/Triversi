@@ -95,6 +95,7 @@
 		8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColors.m"; sourceTree = "<group>"; };
 		8536A9FB18FB802A00BA8C23 /* TriversiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriversiViewController.h; sourceTree = "<group>"; };
 		8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriversiViewController.m; sourceTree = "<group>"; };
+		8536A9FE18FBA44D00BA8C23 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +241,7 @@
 			children = (
 				8536A9E218FB39C600BA8C23 /* SKButton.h */,
 				8536A9E318FB39C600BA8C23 /* SKButton.m */,
+				8536A9FE18FBA44D00BA8C23 /* Constants.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";

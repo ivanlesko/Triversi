@@ -11,7 +11,10 @@
 @interface TrianglePiece : SKShapeNode
 
 @property (nonatomic) UIBezierPath *touchableArea;
+@property (nonatomic) kTRTrianglePieceType type;
+@property (nonatomic) int row;
+@property (nonatomic) int column;
 
-+ (TrianglePiece *)createTriangleAtPosition:(CGPoint)position upSideDown:(BOOL)upSideDown;
++ (TrianglePiece *)createTriangleAtPosition:(CGPoint)position withPieceType:(kTRTrianglePieceType)pieceType upSideDown:(BOOL)upSideDown;
 
 @end

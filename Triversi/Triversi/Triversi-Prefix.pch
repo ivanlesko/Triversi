@@ -19,5 +19,5 @@
     #import "NSString+FilePaths.h"
     #import "NSNumberFormatter+CustomFormatters.h"
     #import "UIColor+HexColors.h"
-
+    #import "Constants.h"
 #endif

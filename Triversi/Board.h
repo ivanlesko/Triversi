@@ -10,4 +10,12 @@
 
 @interface Board : NSObject
 
+/// These are the blank triangles without any peices on them.
+@property (nonatomic, strong) SKNode *triangleGrid;
+
+/// An array of the triangle pieces currently on the grid.
+@property (nonatomic, strong) NSMutableArray *pieces;
+
+
+
 @end

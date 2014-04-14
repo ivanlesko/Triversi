@@ -239,9 +239,9 @@
 		8536A9D118FB38EA00BA8C23 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8536A9FE18FBA44D00BA8C23 /* Constants.h */,
 				8536A9E218FB39C600BA8C23 /* SKButton.h */,
 				8536A9E318FB39C600BA8C23 /* SKButton.m */,
-				8536A9FE18FBA44D00BA8C23 /* Constants.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -606,6 +606,7 @@
 				8536A9CA18FB38A800BA8C23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8536A9CB18FB38A800BA8C23 /* Build configuration list for PBXNativeTarget "TriversiTests" */ = {
 			isa = XCConfigurationList;
@@ -614,6 +615,7 @@
 				8536A9CD18FB38A800BA8C23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

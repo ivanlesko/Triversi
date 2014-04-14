@@ -10,4 +10,10 @@
 
 @interface Game : NSObject
 
+/// All the moves that have been made by both players.
+@property (nonatomic, strong) NSMutableArray *moves;
+
+/// The current player's turn.  Can either be player1 or player2
+
+
 @end

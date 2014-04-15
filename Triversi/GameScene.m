@@ -37,15 +37,13 @@
                                                    andColumn:touchedPiece.column
                                                   atPosition:touchedPiece.position
                                                withPieceType:self.game.turn ? kTRTrianglePieceTypeRed : kTRTrianglePieceTypeBlue
-                                               withDirection:touchedPiece.direction];
-                    newPiece.name = [NSString stringWithFormat:@"piece_%d%d", touchedPiece.row, touchedPiece.column];
-                    [self.board.triangleGrid addChild:newPiece];
+                                               withDirection:touchedPiece.direction
+                                                    withName:[NSString stringWithFormat:@"piece_%d%d", touchedPiece.row, touchedPiece.column]];
+                    [self.board.piecesNode addChild:newPiece];
                     
-                    [[self.board.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:touchedPiece];
+                    [[self.board.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:newPiece];
                     
                     [self changeTurn];
-                    
-                    [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
                     
                     return;
                 }

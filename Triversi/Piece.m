@@ -14,16 +14,16 @@
                  andColumn:(int)column
                 atPosition:(CGPoint)position
              withPieceType:(kTRTrianglePieceType)pieceType
-             withDirection:(kTRTriangleDirection)direction;
+             withDirection:(kTRTriangleDirection)direction
+                  withName:(NSString *)name
 {
-    Piece *newTriangle = [Piece node];
-    newTriangle.position  = position;
-    newTriangle.name = @"piece";
-    newTriangle.type = pieceType;
-    newTriangle.direction = direction;
-    newTriangle.row  = row;
-    newTriangle.column = column;
-    
+    Piece *newPiece = [Piece node];
+    newPiece.position  = position;
+    newPiece.name = name;
+    newPiece.type = pieceType;
+    newPiece.direction = direction;
+    newPiece.row  = row;
+    newPiece.column = column;
     
     CGFloat sideLength = 55.0f;
     CGFloat height = sideLength * (sqrtf(3) / 2.0);
@@ -46,27 +46,29 @@
             break;
     }
     
+    newPiece.touchableArea = path;
+    newPiece.antialiased = YES;
+    newPiece.path = path.CGPath;
+    
     switch (pieceType) {
         case kTRTrianglePieceTypeNeutral:
-            newTriangle.fillColor = [SKColor lightGrayColor];
+            newPiece.fillColor = [SKColor lightGrayColor];
             break;
             
         case kTRTrianglePieceTypeRed:
-            newTriangle.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
+            newPiece.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
             break;
             
         case kTRTrianglePieceTypeBlue:
-            newTriangle.fillColor = [SKColor colorWithHexString:@"395c78"];
+            newPiece.fillColor = [SKColor colorWithHexString:@"395c78"];
             break;
     }
     
-    newTriangle.touchableArea = path;
-    newTriangle.antialiased = YES;
-    newTriangle.path = path.CGPath;
+    newPiece.lineWidth = 0.0f;
     
-    newTriangle.lineWidth = 0.0f;
+    [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
     
-    return newTriangle;
+    return newPiece;
 }
 
 - (NSString *)description {

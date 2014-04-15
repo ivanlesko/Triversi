@@ -20,6 +20,7 @@
                  andColumn:(int)column
                 atPosition:(CGPoint)position
              withPieceType:(kTRTrianglePieceType)pieceType
-             withDirection:(kTRTriangleDirection)direction;
+             withDirection:(kTRTriangleDirection)direction
+                  withName:(NSString *)name;
 
 @end

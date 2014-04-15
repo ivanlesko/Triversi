@@ -14,6 +14,11 @@
 /// These are the blank triangles without any peices on them.
 @property (nonatomic, strong) SKNode *triangleGrid;
 
+/// Pieces node is a node that contains all of the pieces that have been played.
+/// We need this to be a separate layer from the triangle grid.
+/// The pieces played are their own layer in the node tree.
+@property (nonatomic, strong) SKNode *piecesNode;
+
 /// Squares is a loose term for each piece on the triangle grid, similar to a square on a chess board.
 @property (nonatomic, strong) NSMutableArray *squares;
 

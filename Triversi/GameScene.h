@@ -7,7 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Board.h"
+#import "Game.h"
 
 @interface GameScene : SKScene
+
+@property (nonatomic, strong) Board *board;
+@property (nonatomic, strong) Game *game;
 
 @end

@@ -7,13 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Move.h"
 
 @interface Game : NSObject
 
 /// All the moves that have been made by both players.
 @property (nonatomic, strong) NSMutableArray *moves;
 
-/// The current player's turn.  Can either be player1 or player2
+/// An array of players that are in the current game.
+@property (nonatomic, strong) NSMutableArray *players;
 
+/// Determine's what the result of the match was.
+/// Can either be player1, player2, or a draw.
+@property (nonatomic) kTRResult result;
+
+/// The current player's turn.  Can either be player1 or player2
+@property (nonatomic) kTRPieceColor turn;
+
+- (void)addMoveToMoves:(Move *)move;
 
 @end

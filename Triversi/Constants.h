@@ -31,6 +31,10 @@ typedef enum {
     kTRResultDraw
 } kTRResult;
 
+typedef enum {
+    kTRTriangleDirectionUp = 0,
+    kTRTriangleDirectionDown
+} kTRTriangleDirection;
 
 
 /// Leaderboard Identifiers

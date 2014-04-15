@@ -8,13 +8,18 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface TrianglePiece : SKShapeNode
+@interface Piece : SKShapeNode
 
 @property (nonatomic) UIBezierPath *touchableArea;
 @property (nonatomic) kTRTrianglePieceType type;
+@property (nonatomic) kTRTriangleDirection direction;
 @property (nonatomic) int row;
 @property (nonatomic) int column;
 
-+ (TrianglePiece *)createTriangleAtPosition:(CGPoint)position withPieceType:(kTRTrianglePieceType)pieceType upSideDown:(BOOL)upSideDown;
++ (Piece *)placePieceAtRow:(int)row
+                 andColumn:(int)column
+                atPosition:(CGPoint)position
+             withPieceType:(kTRTrianglePieceType)pieceType
+             withDirection:(kTRTriangleDirection)direction;
 
 @end

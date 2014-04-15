@@ -10,4 +10,9 @@
 
 @implementation Game
 
+- (void)addMoveToMoves:(Move *)move {
+    [self.moves addObject:move];
+    move.order = [self.moves indexOfObject:move];
+}
+
 @end

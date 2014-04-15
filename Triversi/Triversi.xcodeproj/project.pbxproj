@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8509769B18FCAFFC00E22A91 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 8509769A18FCAFFC00E22A91 /* Move.m */; };
+		850976A418FCB68300E22A91 /* Square.m in Sources */ = {isa = PBXBuildFile; fileRef = 850976A318FCB68300E22A91 /* Square.m */; };
 		8536A99018FB38A800BA8C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A98F18FB38A800BA8C23 /* Foundation.framework */; };
 		8536A99218FB38A800BA8C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99118FB38A800BA8C23 /* CoreGraphics.framework */; };
 		8536A99418FB38A800BA8C23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99318FB38A800BA8C23 /* UIKit.framework */; };
@@ -30,7 +32,7 @@
 		8536A9E118FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9DD18FB39BD00BA8C23 /* NSNumberFormatter+CustomFormatters.m */; };
 		8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E318FB39C600BA8C23 /* SKButton.m */; };
 		8536A9E718FB3B5900BA8C23 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E618FB3B5900BA8C23 /* Board.m */; };
-		8536A9EA18FB427000BA8C23 /* TrianglePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E918FB427000BA8C23 /* TrianglePiece.m */; };
+		8536A9EA18FB427000BA8C23 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9E918FB427000BA8C23 /* Piece.m */; };
 		8536A9ED18FB64B900BA8C23 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9EC18FB64B900BA8C23 /* Game.m */; };
 		8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */; };
 		8536A9F318FB6D4000BA8C23 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F218FB6D4000BA8C23 /* Player.m */; };
@@ -49,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8509769918FCAFFC00E22A91 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
+		8509769A18FCAFFC00E22A91 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
+		850976A218FCB68300E22A91 /* Square.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Square.h; sourceTree = "<group>"; };
+		850976A318FCB68300E22A91 /* Square.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Square.m; sourceTree = "<group>"; };
 		8536A98C18FB38A800BA8C23 /* Triversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Triversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536A98F18FB38A800BA8C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8536A99118FB38A800BA8C23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,8 +89,8 @@
 		8536A9E318FB39C600BA8C23 /* SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKButton.m; sourceTree = "<group>"; };
 		8536A9E518FB3B5900BA8C23 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		8536A9E618FB3B5900BA8C23 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
-		8536A9E818FB427000BA8C23 /* TrianglePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrianglePiece.h; sourceTree = "<group>"; };
-		8536A9E918FB427000BA8C23 /* TrianglePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrianglePiece.m; sourceTree = "<group>"; };
+		8536A9E818FB427000BA8C23 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
+		8536A9E918FB427000BA8C23 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
 		8536A9EB18FB64B900BA8C23 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		8536A9EC18FB64B900BA8C23 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		8536A9EE18FB6D3600BA8C23 /* PlayerScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScore.h; sourceTree = "<group>"; };
@@ -208,12 +214,16 @@
 			children = (
 				8536A9E518FB3B5900BA8C23 /* Board.h */,
 				8536A9E618FB3B5900BA8C23 /* Board.m */,
+				850976A218FCB68300E22A91 /* Square.h */,
+				850976A318FCB68300E22A91 /* Square.m */,
 				8536A9EB18FB64B900BA8C23 /* Game.h */,
 				8536A9EC18FB64B900BA8C23 /* Game.m */,
 				8536A9EE18FB6D3600BA8C23 /* PlayerScore.h */,
 				8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */,
 				8536A9F118FB6D4000BA8C23 /* Player.h */,
 				8536A9F218FB6D4000BA8C23 /* Player.m */,
+				8509769918FCAFFC00E22A91 /* Move.h */,
+				8509769A18FCAFFC00E22A91 /* Move.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -221,8 +231,8 @@
 		8536A9CF18FB38E000BA8C23 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				8536A9E818FB427000BA8C23 /* TrianglePiece.h */,
-				8536A9E918FB427000BA8C23 /* TrianglePiece.m */,
+				8536A9E818FB427000BA8C23 /* Piece.h */,
+				8536A9E918FB427000BA8C23 /* Piece.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -372,7 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */,
-				8536A9EA18FB427000BA8C23 /* TrianglePiece.m in Sources */,
+				8536A9EA18FB427000BA8C23 /* Piece.m in Sources */,
 				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
 				8536A9ED18FB64B900BA8C23 /* Game.m in Sources */,
 				8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */,
@@ -383,8 +393,10 @@
 				8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */,
 				8536A9DF18FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m in Sources */,
 				8536A9E018FB39BD00BA8C23 /* NSString+FilePaths.m in Sources */,
+				850976A418FCB68300E22A91 /* Square.m in Sources */,
 				8536A9F318FB6D4000BA8C23 /* Player.m in Sources */,
 				8536A9F718FB7D4F00BA8C23 /* UIColor+HexColors.m in Sources */,
+				8509769B18FCAFFC00E22A91 /* Move.m in Sources */,
 				8536A99E18FB38A800BA8C23 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

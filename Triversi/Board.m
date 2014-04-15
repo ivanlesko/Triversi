@@ -15,15 +15,13 @@
 + (Board *)createNewBoardAtPosition:(CGPoint)position {
     // Create the new board.
     Board *newBoard = [Board node];
-    newBoard.name = @"board";
+    newBoard.name = BOARD;
     newBoard.position = position;
     
     // Create the triangle grid and add it to the board.
     newBoard.triangleGrid = [SKNode node];
     [newBoard addChild:newBoard.triangleGrid];
-    
-    int rows = 8;
-    int columns = 9;
+    newBoard.triangleGrid.name = TRIANGLE_GRID;
     
     Piece *placeholderTri = [Piece placePieceAtRow:0
                                          andColumn:0
@@ -33,13 +31,13 @@
     CGFloat spacing = placeholderTri.frame.size.width / 2.0;
     
     [newBoard addChild:placeholderTri];
-    CGPoint origin = CGPointMake(-rows / 2.0 * spacing, rows / 2.0 * spacing + placeholderTri.frame.size.height);
+    CGPoint origin = CGPointMake(-ROWS / 2.0 * spacing, ROWS / 2.0 * spacing + placeholderTri.frame.size.height);
     CGPoint newOrigin = origin;
     
     BOOL upSideDown = NO;
     
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLUMNS; j++) {
             Piece *newTri;
             if (upSideDown) {
                 newTri = [Piece placePieceAtRow:i
@@ -55,7 +53,7 @@
                                   withDirection:kTRTriangleDirectionUp];
             }
             
-            newTri.name   = [NSString stringWithFormat:@"piece%d%d", i, j];
+            newTri.name   = EMPTY_SPACE;
             upSideDown = !upSideDown;
             [newBoard.triangleGrid addChild:newTri];
             newOrigin = CGPointMake(newOrigin.x + spacing, newOrigin.y);
@@ -65,10 +63,15 @@
     
     [placeholderTri removeFromParent];
     
-    // Create the played pieces node and add it to the baord.
-    newBoard.playedPieces = [SKNode node];
-    [newBoard addChild:newBoard.playedPieces];
-    newBoard.playedPieces.position = position;
+    // Create a played pieces array filled with null objects.
+    newBoard.playedPieces = [NSMutableArray array];
+    for (int i = 0; i < ROWS; i++) {
+        NSMutableArray *rowArray = [NSMutableArray array];
+        [newBoard.playedPieces addObject:rowArray];
+        for (int j = 0; j < COLUMNS; j++) {
+            [[newBoard.playedPieces objectAtIndex:i] addObject:[NSNull null]];
+        }
+    }
     
     return newBoard;
 }

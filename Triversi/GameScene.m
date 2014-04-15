@@ -16,6 +16,7 @@
         self.board = [Board createNewBoardAtPosition:CGPointMake(size.width / 2.0, size.height / 2.0)];
         [self addChild:self.board];
         
+        self.game = [[Game alloc] init];
     }
     
     return self;
@@ -25,19 +26,42 @@
     UITouch *touch = [touches anyObject];
     CGPoint position = [touch locationInNode:self];
     NSArray *nodes = [self nodesAtPoint:position];
-    for (Piece *piece in nodes) {
-        if ([piece isKindOfClass:[Piece class]]) {
-            position = [touch locationInNode:piece];
-            if ([piece.touchableArea containsPoint:position]) {
-                Piece *newPiece = [Piece placePieceAtRow:piece.row
-                                               andColumn:piece.column
-                                              atPosition:piece.position
-                                           withPieceType:kTRTrianglePieceTypeBlue
-                                           withDirection:piece.direction];
-                NSLog(@"direction : %d", piece.direction);
-                [self.board.triangleGrid addChild:newPiece];
+    for (Piece *touchedPiece in nodes) {
+        // Touched an empty space.
+        if ([touchedPiece isKindOfClass:[Piece class]]) {
+            // If a piece does not exist in this spot, add one.
+            if ([[self.board.playedPieces objectAtIndex:touchedPiece.row] objectAtIndex:touchedPiece.column] == [NSNull null]) {
+                position = [touch locationInNode:touchedPiece];
+                if ([touchedPiece.touchableArea containsPoint:position]) {
+                    Piece *newPiece = [Piece placePieceAtRow:touchedPiece.row
+                                                   andColumn:touchedPiece.column
+                                                  atPosition:touchedPiece.position
+                                               withPieceType:self.game.turn ? kTRTrianglePieceTypeRed : kTRTrianglePieceTypeBlue
+                                               withDirection:touchedPiece.direction];
+                    newPiece.name = [NSString stringWithFormat:@"piece_%d%d", touchedPiece.row, touchedPiece.column];
+                    [self.board.triangleGrid addChild:newPiece];
+                    
+                    [[self.board.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:touchedPiece];
+                    
+                    [self changeTurn];
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
+                    
+                    return;
+                }
+            } else {
+                // piece already exists.
+                return;
             }
         }
+    }
+}
+
+- (void)changeTurn {
+    if (self.game.turn == kTRPieceColorPlayer1) {
+        self.game.turn = kTRPieceColorPlayer2;
+    } else {
+        self.game.turn = kTRPieceColorPlayer1;
     }
 }
 

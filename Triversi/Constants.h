@@ -37,8 +37,19 @@ typedef enum {
 } kTRTriangleDirection;
 
 
+#define ROWS    8
+#define COLUMNS 9
+
 /// Leaderboard Identifiers
 #define kSBLeaderboardIDEasyWins   = @"easyWins"
 #define kSBLeaderboardIDMediumWins = @"mediumWins"
 #define kSBLeaderboardIDHardWinw   = @"hardWins"
+
+#define BOARD         @"board"
+#define TRIANGLE_GRID @"triangleGrid"
+#define EMPTY_SPACE   @"emptySpace"
+
+#pragma mark - Notifications
+
+#define PLACED_NEW_PIECE @"placedNewPiece"
 

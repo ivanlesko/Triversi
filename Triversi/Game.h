@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Move.h"
+#import "Player.h"
+#import "Piece.h"
 
 @interface Game : NSObject
 
@@ -23,7 +25,5 @@
 
 /// The current player's turn.  Can either be player1 or player2
 @property (nonatomic) kTRPieceColor turn;
-
-- (void)addMoveToMoves:(Move *)move;
 
 @end

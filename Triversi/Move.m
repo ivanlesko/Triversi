@@ -25,7 +25,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"Move #d: At index (%d, %d) with player type %d", self.order, self.row, self.column, self.type];
+    return [NSString stringWithFormat:@"Move #%d: At index (%d, %d) with player type %d", self.order, self.row, self.column, self.type];
 }
 
 @end

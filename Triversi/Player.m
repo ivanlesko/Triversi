@@ -10,4 +10,12 @@
 
 @implementation Player
 
+- (id)initWithPieceColor:(kTRPieceColor)color {
+    if (self = [super init]) {
+        self.pieceColor = color;
+    }
+    
+    return self;
+}
+
 @end

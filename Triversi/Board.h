@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *squares;
 
 /// Played pieces contains the actual pieces on top of the grid.
-@property (nonatomic, strong) SKNode *playedPieces;
+@property (nonatomic, strong) NSMutableArray *playedPieces;
 
 + (Board *)createNewBoardAtPosition:(CGPoint)position;
 

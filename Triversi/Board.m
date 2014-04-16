@@ -28,8 +28,8 @@
                                          andColumn:0
                                         atPosition:CGPointMake(0, 0)
                                      withPieceType:kTRTrianglePieceTypeNeutral
-                                     withDirection:kTRTriangleDirectionUp
-                                          withName:@"placeholder"];
+                                     withDirection:kTRTriangleDirectionUp];
+    
     CGFloat spacing = placeholderTri.frame.size.width / 2.0;
     
     [newBoard addChild:placeholderTri];
@@ -51,15 +51,13 @@
                                       andColumn:j
                                      atPosition:newOrigin
                                   withPieceType:kTRTrianglePieceTypeNeutral
-                                  withDirection:kTRTriangleDirectionDown
-                                       withName:[NSString stringWithFormat:@"triangleGrid_%d%d", i, j]];
+                                  withDirection:kTRTriangleDirectionDown];
             } else {
                 newTri = [Piece placePieceAtRow:i
                                       andColumn:j
                                      atPosition:newOrigin
                                   withPieceType:kTRTrianglePieceTypeNeutral
-                                  withDirection:kTRTriangleDirectionUp
-                                       withName:[NSString stringWithFormat:@"triangleGrid_%d%d", i, j]];
+                                  withDirection:kTRTriangleDirectionUp];
             }
             
             newTri.name   = EMPTY_SPACE;
@@ -70,51 +68,8 @@
         newOrigin = CGPointMake(origin.x, newOrigin.y - placeholderTri.frame.size.height);
     }
     
-    NSIndexPath *player1path1 = [NSIndexPath indexPathForRow:3 inSection:3];
-    NSIndexPath *player1path2 = [NSIndexPath indexPathForRow:3 inSection:5];
-    NSIndexPath *player1path3 = [NSIndexPath indexPathForRow:4 inSection:4];
-    
-    NSIndexPath *player2path1 = [NSIndexPath indexPathForRow:3 inSection:4];
-    NSIndexPath *player2path2 = [NSIndexPath indexPathForRow:4 inSection:3];
-    NSIndexPath *player2path3 = [NSIndexPath indexPathForRow:4 inSection:5];
-    
-    NSArray *player1paths = @[player1path1, player1path2, player1path3];
-    NSArray *player2paths = @[player2path1, player2path2, player2path3];
-    
     newBoard.piecesNode = [SKNode node];
     [newBoard addChild:newBoard.piecesNode];
-    
-    // Place the initial player1 pieces on the board.
-    for (NSIndexPath *path in player1paths) {
-        for (Piece *piece in newBoard.triangleGrid.children) {
-            if (piece.row == path.row && piece.column == path.section) {
-                Piece *player1piece = [Piece placePieceAtRow:piece.row
-                                                   andColumn:piece.column
-                                                  atPosition:piece.position
-                                               withPieceType:kTRTrianglePieceTypeRed
-                                               withDirection:piece.direction
-                                                    withName:@"name"];
-                
-                [newBoard.piecesNode addChild:player1piece];
-            }
-        }
-    }
-    
-    // Place the player2 pieces on the board.
-    for (NSIndexPath *path in player2paths) {
-        for (Piece *piece in newBoard.triangleGrid.children) {
-            if (piece.row == path.row && piece.column == path.section) {
-                Piece *player2piece = [Piece placePieceAtRow:piece.row
-                                                   andColumn:piece.column
-                                                  atPosition:piece.position
-                                               withPieceType:kTRTrianglePieceTypeBlue
-                                               withDirection:piece.direction
-                                                    withName:@"name"];
-                
-                [newBoard.piecesNode addChild:player2piece];
-            }
-        }
-    }
     
     // Create a played pieces array filled with null objects.
     newBoard.playedPieces = [NSMutableArray array];
@@ -126,7 +81,59 @@
         }
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:newBoard
+                                             selector:@selector(replaceNullWithNewPiece:)
+                                                 name:PLACED_NEW_PIECE
+                                               object:nil];
+    
     return newBoard;
+}
+
+- (void)placeInitialPieces {
+    NSIndexPath *player1path1 = [NSIndexPath indexPathForRow:3 inSection:3];
+    NSIndexPath *player1path2 = [NSIndexPath indexPathForRow:3 inSection:5];
+    NSIndexPath *player1path3 = [NSIndexPath indexPathForRow:4 inSection:4];
+    
+    NSIndexPath *player2path1 = [NSIndexPath indexPathForRow:3 inSection:4];
+    NSIndexPath *player2path2 = [NSIndexPath indexPathForRow:4 inSection:3];
+    NSIndexPath *player2path3 = [NSIndexPath indexPathForRow:4 inSection:5];
+    
+    NSArray *player1paths = @[player1path1, player1path2, player1path3];
+    NSArray *player2paths = @[player2path1, player2path2, player2path3];
+    
+    // Place the initial player1 pieces on the board.
+    for (NSIndexPath *path in player1paths) {
+        for (Piece *piece in self.triangleGrid.children) {
+            if (piece.row == path.row && piece.column == path.section) {
+                Piece *player1piece = [Piece placePieceAtRow:piece.row
+                                                   andColumn:piece.column
+                                                  atPosition:piece.position
+                                               withPieceType:kTRTrianglePieceTypeRed
+                                               withDirection:piece.direction];
+            }
+        }
+    }
+    
+    // Place the player2 pieces on the board.
+    for (NSIndexPath *path in player2paths) {
+        for (Piece *piece in self.triangleGrid.children) {
+            if (piece.row == path.row && piece.column == path.section) {
+                Piece *player2piece = [Piece placePieceAtRow:piece.row
+                                                   andColumn:piece.column
+                                                  atPosition:piece.position
+                                               withPieceType:kTRTrianglePieceTypeBlue
+                                               withDirection:piece.direction];
+            }
+        }
+    }
+}
+
+- (void)replaceNullWithNewPiece:(NSNotification *)notification {
+    Piece *newPiece = notification.object;
+    [self.piecesNode addChild:newPiece];
+    [[self.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:newPiece];
+    NSLog(@"%@", self.playedPieces);
+    
 }
 
 @end

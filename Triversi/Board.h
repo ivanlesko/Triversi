@@ -19,12 +19,11 @@
 /// The pieces played are their own layer in the node tree.
 @property (nonatomic, strong) SKNode *piecesNode;
 
-/// Squares is a loose term for each piece on the triangle grid, similar to a square on a chess board.
-@property (nonatomic, strong) NSMutableArray *squares;
-
 /// Played pieces contains the actual pieces on top of the grid.
 @property (nonatomic, strong) NSMutableArray *playedPieces;
 
 + (Board *)createNewBoardAtPosition:(CGPoint)position;
+
+- (void)placeInitialPieces;
 
 @end

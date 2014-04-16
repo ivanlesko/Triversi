@@ -15,6 +15,7 @@
     if (self = [super initWithSize:size]) {
         self.board = [Board createNewBoardAtPosition:CGPointMake(size.width / 2.0, size.height / 2.0)];
         [self addChild:self.board];
+        [self.board placeInitialPieces];
         
         self.game = [[Game alloc] init];
     }
@@ -37,11 +38,7 @@
                                                    andColumn:touchedPiece.column
                                                   atPosition:touchedPiece.position
                                                withPieceType:self.game.turn ? kTRTrianglePieceTypeRed : kTRTrianglePieceTypeBlue
-                                               withDirection:touchedPiece.direction
-                                                    withName:[NSString stringWithFormat:@"piece_%d%d", touchedPiece.row, touchedPiece.column]];
-                    [self.board.piecesNode addChild:newPiece];
-                    
-                    [[self.board.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:newPiece];
+                                               withDirection:touchedPiece.direction];
                     
                     [self changeTurn];
                     

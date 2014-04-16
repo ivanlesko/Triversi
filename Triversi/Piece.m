@@ -15,15 +15,14 @@
                 atPosition:(CGPoint)position
              withPieceType:(kTRTrianglePieceType)pieceType
              withDirection:(kTRTriangleDirection)direction
-                  withName:(NSString *)name
 {
     Piece *newPiece = [Piece node];
     newPiece.position  = position;
-    newPiece.name = name;
     newPiece.type = pieceType;
     newPiece.direction = direction;
     newPiece.row  = row;
     newPiece.column = column;
+    newPiece.name = [NSString stringWithFormat:@"piece_%d%d", newPiece.row, newPiece.column];
     
     CGFloat sideLength = 55.0f;
     CGFloat height = sideLength * (sqrtf(3) / 2.0);

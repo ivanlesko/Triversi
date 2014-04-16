@@ -20,7 +20,7 @@
 @property (nonatomic) int column;
 
 /// Each piece knows about its adjacent pieces
-@property (nonatomic, strong) NSArray *adjacentPieces;
+@property (nonatomic, strong) NSMutableArray *adjacentPieces;
 
 /// Every piece belongs to a board.
 @property (nonatomic, weak) Board *board;

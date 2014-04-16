@@ -41,12 +41,9 @@
                                                withDirection:touchedPiece.direction];
                     
                     [self changeTurn];
-                    
-                    return;
                 }
             } else {
                 // piece already exists.
-                return;
             }
         }
     }

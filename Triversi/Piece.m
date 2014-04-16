@@ -23,8 +23,17 @@
     newPiece.row  = row;
     newPiece.column = column;
     newPiece.name = [NSString stringWithFormat:@"piece_%d%d", newPiece.row, newPiece.column];
+    newPiece.adjacentPieces = [NSMutableArray array];
     
-    CGFloat sideLength = 55.0f;
+    CGFloat sideLength;
+    if ([UIDevice iPhone]) {
+        sideLength = 320.0f / 5.8181f;
+    }
+    
+    if ([UIDevice iPad]) {
+        sideLength = 768.0f / 5.8181f;
+    }
+    
     CGFloat height = sideLength * (sqrtf(3) / 2.0);
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
@@ -68,6 +77,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
     
     return newPiece;
+}
+
+- (void)updateAdjacentPieces:(NSNotification *)notification {
+    NSLog(@"check for adjacent pieces");
+    NSLog(@"%@", notification.object);
 }
 
 - (NSString *)description {

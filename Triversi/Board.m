@@ -7,8 +7,6 @@
 //
 
 #import "Board.h"
-#import "UpPiece.h"
-#import "DownPiece.h"
 
 #define BOARD @"board"
 
@@ -47,28 +45,18 @@
     BOOL upSideDown = NO;
     
     // Populate the board with gray pieces.
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLUMNS; j++) {
-            Piece *newTri;
-            if (upSideDown) {
-                newTri = [DownPiece placePieceAtRow:i
-                                      andColumn:j
-                                     atPosition:newOrigin
-                                  withPieceType:kTRTrianglePieceTypeNeutral
-                                  withDirection:kTRTriangleDirectionDown
-                                      withBoard:newBoard];
-            } else {
-                newTri = [UpPiece placePieceAtRow:i
-                                      andColumn:j
-                                     atPosition:newOrigin
-                                  withPieceType:kTRTrianglePieceTypeNeutral
-                                  withDirection:kTRTriangleDirectionUp
-                                      withBoard:newBoard];
-            }
+    for (NSInteger i = 0; i < ROWS; i++) {
+        for (NSInteger j = 0; j < COLUMNS; j++) {
+            Piece * newTri = [Piece placePieceAtRow:i
+                                          andColumn:j
+                                         atPosition:newOrigin
+                                      withPieceType:kTRTrianglePieceTypeNeutral
+                                      withDirection:upSideDown ? kTRTriangleDirectionDown : kTRTriangleDirectionUp
+                                          withBoard:newBoard];
             
-            newTri.name   = EMPTY_SPACE;
-            upSideDown = !upSideDown;
+            newTri.name = EMPTY_SPACE;
             [newBoard.triangleGrid addChild:newTri];
+            upSideDown = !upSideDown;
             newOrigin = CGPointMake(newOrigin.x + spacing, newOrigin.y);
         }
         newOrigin = CGPointMake(origin.x, newOrigin.y - placeholderTri.frame.size.height);
@@ -87,6 +75,7 @@
         }
     }
     
+    // The board listens to every piece that is placed on it.
     [[NSNotificationCenter defaultCenter] addObserver:newBoard
                                              selector:@selector(replaceNullWithNewPiece:)
                                                  name:PLACED_NEW_PIECE

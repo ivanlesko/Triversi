@@ -21,10 +21,13 @@
 @property (nonatomic) NSInteger column;
 
 /// Every piece belongs to a board.
-@property (nonatomic, weak) Board *board;
+@property (nonatomic, strong) Board *board;
 
+@property (nonatomic, strong) NSMutableArray *adjacentPieces;
 @property (nonatomic) PieceIndex *leftPiece;
 @property (nonatomic) PieceIndex *rightPiece;
+@property (nonatomic) PieceIndex *topPiece;
+@property (nonatomic) PieceIndex *bottomPiece;
 
 /// Places a new piece on the board with a given row, column, position, type, and direction.
 + (id)placePieceAtRow:(NSInteger)row

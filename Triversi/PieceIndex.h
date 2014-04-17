@@ -17,4 +17,6 @@
 @property (nonatomic) NSInteger row;
 @property (nonatomic) NSInteger column;
 
++ (PieceIndex *)createPieceIndexWithRow:(NSInteger)row withColumn:(NSInteger)column;
+
 @end

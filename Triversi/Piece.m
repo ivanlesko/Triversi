@@ -10,8 +10,8 @@
 
 @implementation Piece
 
-+ (Piece *)placePieceAtRow:(int)row
-                 andColumn:(int)column
++ (Piece *)placePieceAtRow:(NSInteger)row
+                 andColumn:(NSInteger)column
                 atPosition:(CGPoint)position
              withPieceType:(kTRTrianglePieceType)pieceType
              withDirection:(kTRTriangleDirection)direction
@@ -24,22 +24,32 @@
     newPiece.row  = row;
     newPiece.column = column;
     newPiece.board = board;
+    newPiece.adjacentPieces = [NSMutableArray array];
 
-    
     // Set the left piece if it is not on the left edge.
-    if (newPiece.column != 0) {
-        newPiece.leftPiece.row = newPiece.row;
-        newPiece.leftPiece.column = newPiece.column - 1;
-    } else {
-        newPiece.leftPiece = nil;
-    }
+    if (newPiece.column > 0) {
+        newPiece.leftPiece = [PieceIndex createPieceIndexWithRow:newPiece.row withColumn:newPiece.column - 1];
+        [newPiece.adjacentPieces addObject:newPiece.leftPiece];
+    } 
     
     // Set the right piece, if it is not on the right edge.
-    if (newPiece.column != COLUMNS) {
-        newPiece.rightPiece.row = newPiece.row;
-        newPiece.rightPiece.column = newPiece.column + 1;
+    if (newPiece.column < COLUMNS - 1) {
+        newPiece.rightPiece = [PieceIndex createPieceIndexWithRow:newPiece.row withColumn:newPiece.column + 1];
+        [newPiece.adjacentPieces addObject:newPiece.rightPiece];
+    }
+
+    if (newPiece.direction == kTRTriangleDirectionUp) {
+        // has a bottomPiece
+        if (newPiece.row < ROWS - 1) {
+            newPiece.bottomPiece = [PieceIndex createPieceIndexWithRow:newPiece.row + 1 withColumn:newPiece.column];
+            [newPiece.adjacentPieces addObject:newPiece.bottomPiece];
+        }
     } else {
-        newPiece.rightPiece = nil;
+        // has a topPiece
+        if (newPiece.row > 0) {
+            newPiece.topPiece = [PieceIndex createPieceIndexWithRow:newPiece.row - 1 withColumn:newPiece.column];
+            [newPiece.adjacentPieces addObject:newPiece.topPiece];
+        }
     }
     
     if (pieceType == kTRTrianglePieceTypeNeutral) {
@@ -107,7 +117,15 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"Piece type: %d direction: %d row: %d column: %d", self.type, self.direction, self.row, self.column];
+    return [NSString stringWithFormat:@"\nPiece #(%d, %d)\ntype: %d\ndirection: %d\nleft adjacent: %@\nright adjacent: %@\ntop adjacent: %@\nbottom adjacent: %@\n",
+            self.row,
+            self.column,
+            self.type,
+            self.direction,
+            self.leftPiece,
+            self.rightPiece,
+            self.topPiece,
+            self.bottomPiece];
 }
 
 @end

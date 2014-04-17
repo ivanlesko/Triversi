@@ -10,6 +10,14 @@
 
 @implementation PieceIndex
 
++ (PieceIndex *)createPieceIndexWithRow:(NSInteger)row withColumn:(NSInteger)column {
+    PieceIndex *newIndex = [[PieceIndex alloc] init];
+    newIndex.row = row;
+    newIndex.column = column;
+    
+    return newIndex;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"(%d, %d)", self.row, self.column];
 }

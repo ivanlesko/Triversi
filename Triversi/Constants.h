@@ -39,6 +39,9 @@ typedef enum {
 #define ROWS    8
 #define COLUMNS 9
 
+// Objects
+#define NULL_OBJECT [NSNull null]
+
 /// Leaderboard Identifiers
 #define kSBLeaderboardIDEasyWins   = @"easyWins"
 #define kSBLeaderboardIDMediumWins = @"mediumWins"

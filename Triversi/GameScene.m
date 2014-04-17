@@ -8,8 +8,6 @@
 
 #import "GameScene.h"
 #import "Piece.h"
-#import "UpPiece.h"
-#import "DownPiece.h"
 
 @implementation GameScene
 
@@ -39,28 +37,15 @@
                 if ([touchedPiece.touchableArea containsPoint:position]) {
                     // Determine corner case logic based on whether the new triangle is facing up or down.
                     if ([self legalMove:touchedPiece]) {
-                        if (touchedPiece.direction == kTRTriangleDirectionUp) {
-                            UpPiece *newUpPiece = [UpPiece placePieceAtRow:touchedPiece.row
-                                                                 andColumn:touchedPiece.column
-                                                                atPosition:touchedPiece.position
-                                                             withPieceType:self.game.turn ? kTRTrianglePieceTypeBlue : kTRTrianglePieceTypeRed
-                                                             withDirection:kTRTriangleDirectionUp
-                                                                 withBoard:self.board];
-                        }
-                        
-                        if (touchedPiece.direction == kTRTriangleDirectionDown) {
-                            DownPiece *newDownPiece = [DownPiece placePieceAtRow:touchedPiece.row
-                                                                 andColumn:touchedPiece.column
-                                                                atPosition:touchedPiece.position
-                                                             withPieceType:self.game.turn ? kTRTrianglePieceTypeBlue : kTRTrianglePieceTypeRed
-                                                             withDirection:kTRTriangleDirectionDown
-                                                                 withBoard:self.board];
-                        }
+                        Piece *newPiece = [Piece placePieceAtRow:touchedPiece.row
+                                                       andColumn:touchedPiece.column
+                                                      atPosition:touchedPiece.position
+                                                   withPieceType:self.game.turn ? kTRTrianglePieceTypeBlue : kTRTrianglePieceTypeRed
+                                                   withDirection:touchedPiece.direction
+                                                       withBoard:self.board];
                         
                         [self changeTurn];
-                        
                     }
-                    
                 }
             } else {
                 // piece already exists.
@@ -70,7 +55,16 @@
 }
 
 - (BOOL)legalMove:(Piece *)touchedPiece {
-    return YES;
+    for (PieceIndex *index in touchedPiece.adjacentPieces) {
+        // Grab a pointer to the touched pieces adjacent pieces.
+        Piece *piece = [[self.board.playedPieces objectAtIndex:index.row] objectAtIndex:index.column];
+        // If there is an adjacent piece, check and make sure it is not a nil class, then allow a move to be made.
+        if ([piece isKindOfClass:[Piece class]]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 

@@ -35,7 +35,7 @@
     
     Move *newMove = [Move createMoveWithRow:newPiece.row
                                      column:newPiece.column
-                                       type:self.turn ? kTRTrianglePieceTypeRed : kTRTrianglePieceTypeBlue
+                                       type:newPiece.type
                                   direction:newPiece.direction];
     
     [self.moves addObject:newMove];

@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Board.h"
+#import "PieceIndex.h"
 
 @class Board;
 
@@ -16,20 +17,21 @@
 @property (nonatomic) UIBezierPath *touchableArea;
 @property (nonatomic) kTRTrianglePieceType type;
 @property (nonatomic) kTRTriangleDirection direction;
-@property (nonatomic) int row;
-@property (nonatomic) int column;
-
-/// Each piece knows about its adjacent pieces
-@property (nonatomic, strong) NSMutableArray *adjacentPieces;
+@property (nonatomic) NSInteger row;
+@property (nonatomic) NSInteger column;
 
 /// Every piece belongs to a board.
 @property (nonatomic, weak) Board *board;
 
+@property (nonatomic) PieceIndex *leftPiece;
+@property (nonatomic) PieceIndex *rightPiece;
+
 /// Places a new piece on the board with a given row, column, position, type, and direction.
-+ (Piece *)placePieceAtRow:(int)row
-                 andColumn:(int)column
-                atPosition:(CGPoint)position
-             withPieceType:(kTRTrianglePieceType)pieceType
-             withDirection:(kTRTriangleDirection)direction;
++ (id)placePieceAtRow:(NSInteger)row
+            andColumn:(NSInteger)column
+           atPosition:(CGPoint)position
+        withPieceType:(kTRTrianglePieceType)pieceType
+        withDirection:(kTRTriangleDirection)direction
+            withBoard:(Board *)board;
 
 @end

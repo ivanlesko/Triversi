@@ -7,6 +7,8 @@
 //
 
 #import "Board.h"
+#import "UpPiece.h"
+#import "DownPiece.h"
 
 #define BOARD @"board"
 
@@ -28,7 +30,8 @@
                                          andColumn:0
                                         atPosition:CGPointMake(0, 0)
                                      withPieceType:kTRTrianglePieceTypeNeutral
-                                     withDirection:kTRTriangleDirectionUp];
+                                     withDirection:kTRTriangleDirectionUp
+                                         withBoard:newBoard];
     
     CGFloat spacing = placeholderTri.frame.size.width / 2.0;
     
@@ -43,21 +46,24 @@
     
     BOOL upSideDown = NO;
     
+    // Populate the board with gray pieces.
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             Piece *newTri;
             if (upSideDown) {
-                newTri = [Piece placePieceAtRow:i
+                newTri = [DownPiece placePieceAtRow:i
                                       andColumn:j
                                      atPosition:newOrigin
                                   withPieceType:kTRTrianglePieceTypeNeutral
-                                  withDirection:kTRTriangleDirectionDown];
+                                  withDirection:kTRTriangleDirectionDown
+                                      withBoard:newBoard];
             } else {
-                newTri = [Piece placePieceAtRow:i
+                newTri = [UpPiece placePieceAtRow:i
                                       andColumn:j
                                      atPosition:newOrigin
                                   withPieceType:kTRTrianglePieceTypeNeutral
-                                  withDirection:kTRTriangleDirectionUp];
+                                  withDirection:kTRTriangleDirectionUp
+                                      withBoard:newBoard];
             }
             
             newTri.name   = EMPTY_SPACE;
@@ -105,11 +111,21 @@
     for (NSIndexPath *path in player1paths) {
         for (Piece *piece in self.triangleGrid.children) {
             if (piece.row == path.row && piece.column == path.section) {
+                switch (piece.direction) {
+                    case kTRTriangleDirectionUp:
+                        
+                        break;
+                        
+                    case kTRTriangleDirectionDown:
+                        
+                        break;
+                }
                 Piece *player1piece = [Piece placePieceAtRow:piece.row
                                                    andColumn:piece.column
                                                   atPosition:piece.position
                                                withPieceType:kTRTrianglePieceTypeRed
-                                               withDirection:piece.direction];
+                                               withDirection:piece.direction
+                                                   withBoard:self];
             }
         }
     }
@@ -122,7 +138,8 @@
                                                    andColumn:piece.column
                                                   atPosition:piece.position
                                                withPieceType:kTRTrianglePieceTypeBlue
-                                               withDirection:piece.direction];
+                                               withDirection:piece.direction
+                                                   withBoard:self];
             }
         }
     }
@@ -132,7 +149,6 @@
     Piece *newPiece = notification.object;
     [self.piecesNode addChild:newPiece];
     [[self.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:newPiece];
-    NSLog(@"%@", self.playedPieces);
     
 }
 

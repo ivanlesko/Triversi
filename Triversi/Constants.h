@@ -36,7 +36,6 @@ typedef enum {
     kTRTriangleDirectionDown
 } kTRTriangleDirection;
 
-
 #define ROWS    8
 #define COLUMNS 9
 

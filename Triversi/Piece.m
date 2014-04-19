@@ -108,12 +108,30 @@
             break;
     }
     
-    newPiece.lineWidth = 0.0f;
+    newPiece.lineWidth = 0.25f;
     
     // Post a notification that a new piece has been placed on the board.
     [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
     
     return newPiece;
+}
+
+- (void)flipPiece {
+    switch (self.type) {
+        case kTRTrianglePieceTypeBlue:
+            self.type = kTRTrianglePieceTypeRed;
+            self.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
+            break;
+            
+        case kTRTrianglePieceTypeRed:
+            self.type = kTRTrianglePieceTypeBlue;
+            self.fillColor = [SKColor colorWithHexString:@"395c78"];
+            break;
+            
+        case kTRTrianglePieceTypeNeutral:
+            // do nothing
+            break;
+    }
 }
 
 - (NSString *)description {

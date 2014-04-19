@@ -37,4 +37,6 @@
         withDirection:(kTRTriangleDirection)direction
             withBoard:(Board *)board;
 
+- (void)flipPiece;
+
 @end

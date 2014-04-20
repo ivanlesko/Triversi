@@ -44,21 +44,7 @@
                                                    withDirection:touchedPiece.direction
                                                        withBoard:self.board];
                         
-                        NSArray *piecesToFlip = [self piecesToFlipForNewPiece:newPiece];
-                        
-                        NSInteger xStart;
-                        NSInteger yStart;
-                        
-                        
-                        
-//                        for (int i = 0; i < directions.count; i++) {
-//                            xStart = newPiece.row;
-//                            yStart = newPiece.column;
-//                            NSInteger x = [[[directions objectAtIndex:i] objectAtIndex:0] integerValue];
-//                            NSInteger y = [[[directions objectAtIndex:i] objectAtIndex:1] integerValue];
-//                            NSLog(@"x: %d, y: %d", x, y);
-//                            
-//                        }
+                        [self flipPiecesForIndexes:[self piecesToFlipForNewPiece:newPiece] withNewPiece:newPiece];
                         
                         [self changeTurn];
                     }
@@ -85,46 +71,143 @@
 
 - (NSArray *)piecesToFlipForNewPiece:(Piece *)newPiece {
     NSMutableArray *pieces = [NSMutableArray array];
+    NSArray *east, *west, *northEast, *southEast, *northWest, *southWest;
     
-    int east[2] = {1, 0};
-    int west[2] = {-1, 0};
-    
-    int northEast[2][2];
-    int southEast[2][2];
-    int southWest[2][2];
-    int northWest[2][2];
-    switch (newPiece.direction) {
-        case kTRTriangleDirectionUp:
-            
-            break;
-            
-        case kTRTriangleDirectionDown:
-            northEast = {
-                {0, 1},
-                {1, 0}
-            };
-            
-            southEast = {
-                {1, 0},
-                {0, 1}
-            };
-            
-            
-            
-            break;
+    east = @[@0, @1];
+    west = @[@0, @-1];
+
+    // Set the directions based on the triangle's direction.
+    if (newPiece.direction == kTRTriangleDirectionUp) {
+        northEast = @[
+                      @[@1, @0],
+                      @[@0, @-1]
+                      ];
+        
+        southEast = @[
+                      @[@0, @1],
+                      @[@1, @0]
+                      ];
+        
+        southWest = @[
+                      @[@0, @1],
+                      @[@-1, @0]
+                      ];
+        
+        northWest = @[
+                      @[@-1, @0],
+                      @[@0, @-1]
+                      ];
+        
+    } else {
+        // Triangle facing down.
+        northEast = @[
+                      @[@0, @-1],
+                      @[@1, @0]
+                      ];
+        
+        southEast = @[
+                      @[@1, @0],
+                      @[@0, @1]
+                      ];
+        
+        southWest = @[
+                      @[@-1, @0],
+                      @[@0, @1]
+                      ];
+        
+        northWest = @[
+                      @[@0, @-1],
+                      @[@-1, @0]
+                      ];
     }
+    
+    NSArray *directions = @[east, west];
+    
+    NSNumber *xDirection;
+    NSNumber *yDirection;
+    
+    for (int i = 0; i < directions.count; i++) {
+        xDirection = [[directions objectAtIndex:i] objectAtIndex:0];
+        yDirection = [[directions objectAtIndex:i] objectAtIndex:1];
+        
+        NSNumber *x = [NSNumber numberWithInt:newPiece.row + xDirection.intValue];
+        NSNumber *y = [NSNumber numberWithInt:newPiece.column + yDirection.intValue];
+        
+        // Make sure we are not checking out of bounds and the first piece we check is an opponent's piece.
+        if ([self isOnBoardX:x Y:y] && [self pieceExistsAtIndex:x Y:y] && [(Piece *)[self pieceAtIndex:x Y:y] type] != newPiece.type) {
+            // There is a piece that belongs to the opponent next to our piece
+            x = [NSNumber numberWithInt:x.intValue + xDirection.intValue];
+            y = [NSNumber numberWithInt:y.intValue + yDirection.intValue];
+            
+            // If we are out of the bounds of the board, continue to the next direction
+            if (![self isOnBoardX:x Y:y]) {
+                continue;
+            }
+            
+            // Keep traversion in the x and y direction as long as the next piece is the opponent's color.
+            while ([(Piece *)[self pieceAtIndex:x Y:y] type] != newPiece.type) {
+                x = [NSNumber numberWithInt:x.intValue + xDirection.intValue];
+                y = [NSNumber numberWithInt:y.intValue + yDirection.intValue];
+                
+                
+                // If we are out of bounds, break to the next direction
+                if (![self isOnBoardX:x Y:y]) {
+                    break;
+                }
+            }
+            
+            if (![self isOnBoardX:x Y:y]) {
+                continue;
+            }
+            
+            // If the last piece we traversed to is of the same type that we placed...
+            if ([(Piece *)[self pieceAtIndex:x Y:y] type] == newPiece.type) {
+                while (x.integerValue != newPiece.row || y.integerValue != newPiece.column) {
+                    // Traverse backwards
+                    x = [NSNumber numberWithInt:x.intValue - xDirection.intValue];
+                    y = [NSNumber numberWithInt:y.intValue - yDirection.intValue];
+                    
+                    if (x.integerValue == newPiece.row && y.integerValue == newPiece.column) {
+                        break;
+                    }
+                    
+                    PieceIndex *index = [PieceIndex createPieceIndexWithRow:x.integerValue withColumn:y.integerValue];
+                    [pieces addObject:index];
+                }
+            }
+        }
+    }
+    
+    NSLog(@"%@", pieces);
     
     return pieces;
 }
 
-- (void)flipPiecesWithPlacedPiece:(Piece *)newPiece {
-    for (PieceIndex *index in newPiece.adjacentPieces) {
-        // Grab a pointer to the touched pieces adjacent pieces.
-        Piece *piece = [[self.board.playedPieces objectAtIndex:index.row] objectAtIndex:index.column];
-        // If there is an adjacent piece, check and make sure it is not a nil class, then allow a move to be made.
-        if ([piece isKindOfClass:[Piece class]] && piece.type != newPiece.type) {
-            [piece flipPiece];
-        }
+- (BOOL)isOnBoardX:(NSNumber *)x Y:(NSNumber *)y {
+    if (x.intValue < COLUMNS && x.intValue >= 0 && y.intValue < ROWS && y.intValue >= 0) {
+        return TRUE;
+    }
+    
+    return FALSE;
+}
+
+- (BOOL)pieceExistsAtIndex:(NSNumber *)x Y:(NSNumber *)y {
+    if (self.board.playedPieces[x.integerValue][y.integerValue] != NULL_OBJECT) {
+        return TRUE;
+    }
+    
+    return FALSE;
+}
+
+- (Piece *)pieceAtIndex:(NSNumber *)x Y:(NSNumber *)y {
+    Piece *piece = self.board.playedPieces[x.integerValue][y.integerValue];
+    return piece;
+}
+
+- (void)flipPiecesForIndexes:(NSArray *)indexes withNewPiece:(Piece *)newPiece {
+    for (PieceIndex *index in [NSArray arrayWithArray:indexes]) {
+        Piece *piece = self.board.playedPieces[index.row][index.column];
+        [piece flipPiece];
     }
 }
 

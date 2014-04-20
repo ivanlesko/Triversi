@@ -45,7 +45,9 @@
     BOOL upSideDown = NO;
     
     // Populate the board with gray pieces.
+    newBoard.emptyPieces  = [NSMutableArray array];
     for (NSInteger i = 0; i < ROWS; i++) {
+        [newBoard.emptyPieces addObject:[NSMutableArray array]];
         for (NSInteger j = 0; j < COLUMNS; j++) {
             Piece * newTri = [Piece placePieceAtRow:i
                                           andColumn:j
@@ -58,6 +60,7 @@
             [newBoard.triangleGrid addChild:newTri];
             upSideDown = !upSideDown;
             newOrigin = CGPointMake(newOrigin.x + spacing, newOrigin.y);
+            [[newBoard.emptyPieces objectAtIndex:i] addObject:newTri];
         }
         newOrigin = CGPointMake(origin.x, newOrigin.y - placeholderTri.frame.size.height);
     }

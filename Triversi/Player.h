@@ -10,8 +10,8 @@
 
 @interface Player : NSObject
 
-@property (nonatomic) kTRPieceColor pieceColor;
+@property (nonatomic) kTRTrianglePieceType pieceColor;
 
-- (id)initWithPieceColor:(kTRPieceColor)color;
+- (id)initWithPieceColor:(kTRTrianglePieceType)color;
 
 @end

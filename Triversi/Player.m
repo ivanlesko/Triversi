@@ -10,7 +10,7 @@
 
 @implementation Player
 
-- (id)initWithPieceColor:(kTRPieceColor)color {
+- (id)initWithPieceColor:(kTRTrianglePieceType)color {
     if (self = [super init]) {
         self.pieceColor = color;
     }

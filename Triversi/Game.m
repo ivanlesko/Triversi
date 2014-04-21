@@ -12,12 +12,12 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.turn = kTRPieceColorPlayer1;
+        self.turn = kTRTrianglePieceTypeRed;
         self.moves = [NSMutableArray array];
         self.players = [NSMutableArray array];
         
-        Player *player1 = [[Player alloc] initWithPieceColor:kTRPieceColorPlayer1];
-        Player *player2 = [[Player alloc] initWithPieceColor:kTRPieceColorPlayer2];
+        Player *player1 = [[Player alloc] initWithPieceColor:kTRTrianglePieceTypeRed];
+        Player *player2 = [[Player alloc] initWithPieceColor:kTRTrianglePieceTypeBlue];
         
         [self.players addObjectsFromArray:@[player1, player2]];
     }

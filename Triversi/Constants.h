@@ -21,11 +21,6 @@ typedef enum {
 } kTRTrianglePieceType;
 
 typedef enum {
-    kTRPieceColorPlayer1 = 0,
-    kTRPieceColorPlayer2
-} kTRPieceColor;
-
-typedef enum {
     kTRResultPlayer1Won = 0,
     kTRResultPlayer2Won,
     kTRResultDraw

@@ -24,6 +24,6 @@
 @property (nonatomic) kTRResult result;
 
 /// The current player's turn.  Can either be player1 or player2
-@property (nonatomic) kTRPieceColor turn;
+@property (nonatomic) kTRTrianglePieceType turn;
 
 @end

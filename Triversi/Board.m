@@ -141,7 +141,6 @@
     Piece *newPiece = notification.object;
     [self.piecesNode addChild:newPiece];
     [[self.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:newPiece];
-    
 }
 
 @end

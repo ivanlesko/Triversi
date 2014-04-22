@@ -14,11 +14,11 @@
 
 @interface Piece : SKShapeNode
 
-@property (nonatomic) UIBezierPath *touchableArea;
+@property (nonatomic, strong) UIBezierPath *touchableArea;
 @property (nonatomic) kTRTrianglePieceType type;
 @property (nonatomic) kTRTriangleDirection direction;
-@property (nonatomic) NSInteger row;
-@property (nonatomic) NSInteger column;
+@property (nonatomic) NSNumber *row;
+@property (nonatomic) NSNumber *column;
 
 /// Every piece belongs to a board.
 @property (nonatomic, strong) Board *board;
@@ -30,8 +30,8 @@
 @property (nonatomic) PieceIndex *bottomPiece;
 
 /// Places a new piece on the board with a given row, column, position, type, and direction.
-+ (id)placePieceAtRow:(NSInteger)row
-            andColumn:(NSInteger)column
++ (id)placePieceAtRow:(NSNumber *)row
+            andColumn:(NSNumber *)column
            atPosition:(CGPoint)position
         withPieceType:(kTRTrianglePieceType)pieceType
         withDirection:(kTRTriangleDirection)direction

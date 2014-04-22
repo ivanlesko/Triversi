@@ -10,8 +10,8 @@
 
 @implementation Move
 
-+ (Move *)createMoveWithRow:(int)row
-                     column:(int)column
++ (Move *)createMoveWithRow:(NSNumber *)row
+                     column:(NSNumber *)column
                        type:(kTRTrianglePieceType)type
                   direction:(kTRTriangleDirection)direction {
     Move *newMove = [[Move alloc] init];
@@ -25,7 +25,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"Move #%d: At index (%d, %d) with player type %d", self.order, self.row, self.column, self.type];
+    return [NSString stringWithFormat:@"Move #%d: At index (%@, %@) with player type %d", self.order, self.row, self.column, self.type];
 }
 
 @end

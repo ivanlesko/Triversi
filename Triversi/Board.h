@@ -24,6 +24,9 @@
 /// Played pieces contains the actual pieces on top of the grid.
 @property (nonatomic, strong) NSMutableArray *playedPieces;
 
+@property (nonatomic, strong) NSNumber *player1pieces;
+@property (nonatomic, strong) NSNumber *player2pieces;
+
 + (Board *)createNewBoardAtPosition:(CGPoint)position;
 
 - (void)placeInitialPieces;

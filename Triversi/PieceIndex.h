@@ -14,9 +14,9 @@
  * The PieceIndex class contains a row and column.
  * This is used to easily determine the adjacent pieces on any given piece
  */
-@property (nonatomic) NSInteger row;
-@property (nonatomic) NSInteger column;
+@property (nonatomic) NSNumber *row;
+@property (nonatomic) NSNumber *column;
 
-+ (PieceIndex *)createPieceIndexWithRow:(NSInteger)row withColumn:(NSInteger)column;
++ (PieceIndex *)createPieceIndexWithRow:(NSNumber *)row withColumn:(NSNumber *)column;
 
 @end

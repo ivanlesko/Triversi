@@ -49,8 +49,8 @@
     for (NSInteger i = 0; i < ROWS; i++) {
         [newBoard.emptyPieces addObject:[NSMutableArray array]];
         for (NSInteger j = 0; j < COLUMNS; j++) {
-            Piece * newTri = [Piece placePieceAtRow:i
-                                          andColumn:j
+            Piece * newTri = [Piece placePieceAtRow:@(i)
+                                          andColumn:@(j)
                                          atPosition:newOrigin
                                       withPieceType:kTRTrianglePieceTypeNeutral
                                       withDirection:upSideDown ? kTRTriangleDirectionDown : kTRTriangleDirectionUp
@@ -84,25 +84,26 @@
                                                  name:PLACED_NEW_PIECE
                                                object:nil];
     
+    
     return newBoard;
 }
 
 - (void)placeInitialPieces {
-    NSIndexPath *player1path1 = [NSIndexPath indexPathForRow:3 inSection:3];
-    NSIndexPath *player1path2 = [NSIndexPath indexPathForRow:3 inSection:5];
-    NSIndexPath *player1path3 = [NSIndexPath indexPathForRow:4 inSection:4];
+    PieceIndex *player1path1 = [PieceIndex createPieceIndexWithRow:@(3) withColumn:@(3)];
+    PieceIndex *player1path2 = [PieceIndex createPieceIndexWithRow:@(3) withColumn:@(5)];
+    PieceIndex *player1path3 = [PieceIndex createPieceIndexWithRow:@(4) withColumn:@(4)];
     
-    NSIndexPath *player2path1 = [NSIndexPath indexPathForRow:3 inSection:4];
-    NSIndexPath *player2path2 = [NSIndexPath indexPathForRow:4 inSection:3];
-    NSIndexPath *player2path3 = [NSIndexPath indexPathForRow:4 inSection:5];
+    PieceIndex *player2path1 = [PieceIndex createPieceIndexWithRow:@(3) withColumn:@(4)];
+    PieceIndex *player2path2 = [PieceIndex createPieceIndexWithRow:@(4) withColumn:@(3)];
+    PieceIndex *player2path3 = [PieceIndex createPieceIndexWithRow:@(4) withColumn:@(5)];
     
     NSArray *player1paths = @[player1path1, player1path2, player1path3];
     NSArray *player2paths = @[player2path1, player2path2, player2path3];
     
     // Place the initial player1 pieces on the board.
-    for (NSIndexPath *path in player1paths) {
+    for (PieceIndex *path in player1paths) {
         for (Piece *piece in self.triangleGrid.children) {
-            if (piece.row == path.row && piece.column == path.section) {
+            if (piece.row == path.row && piece.column == path.column) {
                 switch (piece.direction) {
                     case kTRTriangleDirectionUp:
                         
@@ -123,9 +124,9 @@
     }
     
     // Place the player2 pieces on the board.
-    for (NSIndexPath *path in player2paths) {
+    for (PieceIndex *path in player2paths) {
         for (Piece *piece in self.triangleGrid.children) {
-            if (piece.row == path.row && piece.column == path.section) {
+            if (piece.row == path.row && piece.column == path.column) {
                 Piece *player2piece = [Piece placePieceAtRow:piece.row
                                                    andColumn:piece.column
                                                   atPosition:piece.position
@@ -140,7 +141,7 @@
 - (void)replaceNullWithNewPiece:(NSNotification *)notification {
     Piece *newPiece = notification.object;
     [self.piecesNode addChild:newPiece];
-    [[self.playedPieces objectAtIndex:newPiece.row] replaceObjectAtIndex:newPiece.column withObject:newPiece];
+    [[self.playedPieces objectAtIndex:newPiece.row.integerValue] replaceObjectAtIndex:newPiece.column.integerValue withObject:newPiece];
 }
 
 @end

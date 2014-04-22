@@ -13,13 +13,13 @@
 /// A move object contains all of the information about what type of piece was placed where.
 
 @property (nonatomic) int order;
-@property (nonatomic) int row;
-@property (nonatomic) int column;
+@property (nonatomic) NSNumber *row;
+@property (nonatomic) NSNumber *column;
 @property (nonatomic) kTRTrianglePieceType type;
 @property (nonatomic) kTRTriangleDirection direction;
 
-+ (Move *)createMoveWithRow:(int)row
-                     column:(int)column
++ (Move *)createMoveWithRow:(NSNumber *)row
+                     column:(NSNumber *)column
                        type:(kTRTrianglePieceType)type
                   direction:(kTRTriangleDirection)direction;
 

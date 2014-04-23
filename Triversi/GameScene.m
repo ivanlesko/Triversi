@@ -18,6 +18,11 @@
         [self.board placeInitialPieces];
         
         self.game = [[Game alloc] init];
+        
+        Scorezone *scorezone = [Scorezone createScorezoneAtPosition:CGPointMake(size.width / 2.0, size.height * 0.9)];
+        [self addChild:scorezone];
+        
+        [self.game addScorezoneAsListener:scorezone];
     }
     
     return self;
@@ -36,45 +41,24 @@
                 position = [touch locationInNode:touchedPiece];
                 if ([touchedPiece.touchableArea containsPoint:position]) {
                     
-                    NSArray *piecesToFlip;
-                    if (self.game.turn == kTRTrianglePieceTypeRed) {
-                        piecesToFlip =[self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
-                                                     withDirection:touchedPiece.direction
-                                                          withType:kTRTrianglePieceTypeRed];
-                        
-                    } else if (self.game.turn == kTRTrianglePieceTypeBlue) {
-                        piecesToFlip =  [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
-                                                       withDirection:touchedPiece.direction
-                                                            withType:kTRTrianglePieceTypeBlue];
-                    }
+                    // Place a new piece at the given touch position.
+                    [self placeNewPieceForTouched:touchedPiece];
                     
-                    if (piecesToFlip.count > 0) {
-                        if (self.game.turn == kTRTrianglePieceTypeRed) {
-                            Piece *newPiece = [Piece placePieceAtRow:touchedPiece.row
-                                                           andColumn:touchedPiece.column
-                                                          atPosition:touchedPiece.position
-                                                       withPieceType:kTRTrianglePieceTypeRed
-                                                       withDirection:touchedPiece.direction
-                                                           withBoard:self.board];
-                            
-                        } else if (self.game.turn == kTRTrianglePieceTypeBlue) {
-                            Piece *newPiece = [Piece placePieceAtRow:touchedPiece.row
-                                                           andColumn:touchedPiece.column
-                                                          atPosition:touchedPiece.position
-                                                       withPieceType:kTRTrianglePieceTypeBlue
-                                                       withDirection:touchedPiece.direction
-                                                           withBoard:self.board];
-                        }
-                        
-                        [self changeTurn];
-                    }
+//                    NSArray *possibleMoves;
+//                    if (self.game.turn == kTRTrianglePieceTypeRed) {
+//                        possibleMoves =  [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
+//                                                        withDirection:touchedPiece.direction
+//                                                             withType:kTRTrianglePieceTypeRed];
+//                    } else {
+//                        possibleMoves = [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
+//                                                       withDirection:touchedPiece.direction
+//                                                            withType:kTRTrianglePieceTypeBlue];
+//                    }
                     
-                    for (PieceIndex *index in piecesToFlip) {
-                        if ([self pieceAtIndex:index.row Y:index.column]) {
-                            Piece *pieceToFlip = self.board.playedPieces[index.row.integerValue][index.column.integerValue];
-                            [pieceToFlip flipPiece];
-                        }
-                    }
+//                    NSLog(@"turn: %d", self.game.turn);
+//                    NSLog(@"possible moves: %d", possibleMoves.count);
+//                    [self changeTurn];
+                    
                 }
             } else {
                 // piece already exists.
@@ -82,6 +66,51 @@
         }
     }
 }
+
+- (void)placeNewPieceForTouched:(Piece *)touchedPiece {
+    NSArray *piecesToFlip;
+    if (self.game.turn == kTRTrianglePieceTypeRed) {
+        piecesToFlip =[self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
+                                     withDirection:touchedPiece.direction
+                                          withType:kTRTrianglePieceTypeRed];
+        
+    } else if (self.game.turn == kTRTrianglePieceTypeBlue) {
+        piecesToFlip =  [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
+                                       withDirection:touchedPiece.direction
+                                            withType:kTRTrianglePieceTypeBlue];
+    }
+    
+    if (piecesToFlip.count > 0) {
+        if (self.game.turn == kTRTrianglePieceTypeRed) {
+            Piece *newPiece = [Piece placePieceAtRow:touchedPiece.row
+                                           andColumn:touchedPiece.column
+                                          atPosition:touchedPiece.position
+                                       withPieceType:kTRTrianglePieceTypeRed
+                                       withDirection:touchedPiece.direction
+                                           withBoard:self.board];
+            
+        } else if (self.game.turn == kTRTrianglePieceTypeBlue) {
+            Piece *newPiece = [Piece placePieceAtRow:touchedPiece.row
+                                           andColumn:touchedPiece.column
+                                          atPosition:touchedPiece.position
+                                       withPieceType:kTRTrianglePieceTypeBlue
+                                       withDirection:touchedPiece.direction
+                                           withBoard:self.board];
+        }
+        
+        for (PieceIndex *index in piecesToFlip) {
+            if ([self pieceAtIndex:index.row Y:index.column]) {
+                Piece *pieceToFlip = self.board.playedPieces[index.row.integerValue][index.column.integerValue];
+                [pieceToFlip flipPiece];
+            }
+        }
+        
+        [self changeTurn];
+        [self updatePlayerScores];
+    }
+}
+
+#pragma mark - Move Logic
 
 - (NSArray *)indexesForTouchedIndex:(PieceIndex *)index withDirection:(kTRTriangleDirection)direction withType:(kTRTrianglePieceType)type {
     NSMutableArray *indexes = [NSMutableArray array];
@@ -171,8 +200,6 @@
     return indexes;
 }
 
-#pragma mark - Board Logic
-
 - (NSNumber *)xDirectionForTraverseCount:(int)traverseCount andDirectionsArray:(NSArray *)directions withDirectionIndex:(int)i {
     NSNumber *xDirection;
     if ([[[directions objectAtIndex:i] objectAtIndex:0] isKindOfClass:[NSArray class]]) {
@@ -259,6 +286,35 @@
     
     return @[east, west, northEast, southEast, southWest, northWest];
 }
+
+#pragma mark - Scoring Logic
+
+- (void)updatePlayerScores {
+    self.game.player1score = @(0);
+    self.game.player2score = @(0);
+    
+    for (NSArray *row in self.board.playedPieces) {
+        for (Piece *piece in row) {
+            if ([piece isKindOfClass:[Piece class]]) {
+                switch (piece.type) {
+                    case kTRTrianglePieceTypeRed:
+                        self.game.player1score = @(self.game.player1score.intValue + 1);
+                        break;
+                        
+                    case kTRTrianglePieceTypeBlue:
+                        self.game.player2score = @(self.game.player2score.intValue + 1);
+                        break;
+                        
+                    case kTRTrianglePieceTypeNeutral:
+                        // do nothing
+                        break;
+                }
+            }
+        }
+    }
+}
+
+#pragma mark - Board Logic
 
 - (BOOL)isOnBoardX:(NSNumber *)x Y:(NSNumber *)y {
     if (x.intValue < ROWS && x.intValue >= 0 && y.intValue < COLUMNS && y.intValue >= 0) {

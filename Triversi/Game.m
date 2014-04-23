@@ -42,4 +42,16 @@
     newMove.order = [self.moves indexOfObject:newMove];
 }
 
+- (void)addScorezoneAsListener:(Scorezone *)scorezone {
+    [self addObserver:scorezone
+           forKeyPath:NSStringFromSelector(@selector(player1score))
+              options:NSKeyValueObservingOptionNew
+              context:NULL];
+    
+    [self addObserver:scorezone
+           forKeyPath:NSStringFromSelector(@selector(player2score))
+              options:NSKeyValueObservingOptionNew
+              context:NULL];
+}
+
 @end

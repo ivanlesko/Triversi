@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8502ABF518FEE0F400BCACEA /* UIDevice+DeviceCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8502ABF418FEE0F400BCACEA /* UIDevice+DeviceCheck.m */; };
 		8509769B18FCAFFC00E22A91 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 8509769A18FCAFFC00E22A91 /* Move.m */; };
+		85353C48190866E2008D9C46 /* Scorezone.m in Sources */ = {isa = PBXBuildFile; fileRef = 85353C47190866E2008D9C46 /* Scorezone.m */; };
 		8536A99018FB38A800BA8C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A98F18FB38A800BA8C23 /* Foundation.framework */; };
 		8536A99218FB38A800BA8C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99118FB38A800BA8C23 /* CoreGraphics.framework */; };
 		8536A99418FB38A800BA8C23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A99318FB38A800BA8C23 /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		8502ABF418FEE0F400BCACEA /* UIDevice+DeviceCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceCheck.m"; sourceTree = "<group>"; };
 		8509769918FCAFFC00E22A91 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		8509769A18FCAFFC00E22A91 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
+		85353C46190866E2008D9C46 /* Scorezone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scorezone.h; sourceTree = "<group>"; };
+		85353C47190866E2008D9C46 /* Scorezone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scorezone.m; sourceTree = "<group>"; };
 		8536A98C18FB38A800BA8C23 /* Triversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Triversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8536A98F18FB38A800BA8C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8536A99118FB38A800BA8C23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -217,10 +220,10 @@
 			children = (
 				8536A9E518FB3B5900BA8C23 /* Board.h */,
 				8536A9E618FB3B5900BA8C23 /* Board.m */,
-				857098B618FF58FA0085121D /* PieceIndex.h */,
-				857098B718FF58FA0085121D /* PieceIndex.m */,
 				8536A9EB18FB64B900BA8C23 /* Game.h */,
 				8536A9EC18FB64B900BA8C23 /* Game.m */,
+				857098B618FF58FA0085121D /* PieceIndex.h */,
+				857098B718FF58FA0085121D /* PieceIndex.m */,
 				8536A9EE18FB6D3600BA8C23 /* PlayerScore.h */,
 				8536A9EF18FB6D3600BA8C23 /* PlayerScore.m */,
 				8536A9F118FB6D4000BA8C23 /* Player.h */,
@@ -236,6 +239,8 @@
 			children = (
 				8536A9E818FB427000BA8C23 /* Piece.h */,
 				8536A9E918FB427000BA8C23 /* Piece.m */,
+				85353C46190866E2008D9C46 /* Scorezone.h */,
+				85353C47190866E2008D9C46 /* Scorezone.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				8536A9EA18FB427000BA8C23 /* Piece.m in Sources */,
 				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
 				8536A9ED18FB64B900BA8C23 /* Game.m in Sources */,
+				85353C48190866E2008D9C46 /* Scorezone.m in Sources */,
 				8502ABF518FEE0F400BCACEA /* UIDevice+DeviceCheck.m in Sources */,
 				8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */,
 				857098B818FF58FA0085121D /* PieceIndex.m in Sources */,

@@ -65,7 +65,7 @@
     }
     
     if ([UIDevice iPad]) {
-        sideLength = 768.0f / 5.8181f;
+        sideLength = 768.0f / 6.8181f;
     }
     
     CGFloat height = sideLength * (sqrtf(3) / 2.0);

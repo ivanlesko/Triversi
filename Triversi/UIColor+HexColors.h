@@ -13,4 +13,7 @@
 +(UIColor *)colorWithHexString:(NSString *)hexString;
 +(NSString *)hexValuesFromUIColor:(UIColor *)color;
 
++ (UIColor *)player1Color;
++ (UIColor *)player2Color;
+
 @end

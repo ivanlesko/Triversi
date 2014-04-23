@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Board.h"
 #import "Game.h"
+#import "Scorezone.h"
 
 @interface GameScene : SKScene
 

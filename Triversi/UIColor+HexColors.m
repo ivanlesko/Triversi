@@ -78,4 +78,24 @@
     
 }
 
++ (UIColor *)player1Color {
+    UIColor *color = [UIColor colorWithHexString:@"bd3b3b"];
+    
+    return color;
+}
+
++ (UIColor *)player2Color {
+    UIColor *color = [UIColor colorWithHexString:@"395c78"];
+    
+    return color;
+}
+
+
 @end
+
+
+
+
+
+
+

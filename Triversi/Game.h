@@ -11,6 +11,8 @@
 #import "Player.h"
 #import "Piece.h"
 
+@class Scorezone;
+
 @interface Game : NSObject
 
 /// All the moves that have been made by both players.
@@ -25,5 +27,10 @@
 
 /// The current player's turn.  Can either be player1 or player2
 @property (nonatomic) kTRTrianglePieceType turn;
+
+@property (nonatomic, strong) NSNumber *player1score;
+@property (nonatomic, strong) NSNumber *player2score;
+
+- (void)addScorezoneAsListener:(Scorezone *)scorezone;
 
 @end

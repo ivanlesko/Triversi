@@ -104,15 +104,6 @@
     for (PieceIndex *path in player1paths) {
         for (Piece *piece in self.triangleGrid.children) {
             if (piece.row == path.row && piece.column == path.column) {
-                switch (piece.direction) {
-                    case kTRTriangleDirectionUp:
-                        
-                        break;
-                        
-                    case kTRTriangleDirectionDown:
-                        
-                        break;
-                }
                 Piece *player1piece = [Piece placePieceAtRow:piece.row
                                                    andColumn:piece.column
                                                   atPosition:piece.position

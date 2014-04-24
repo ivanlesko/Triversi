@@ -42,6 +42,11 @@
     newScorezone.player2scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     [newScorezone addChild:newScorezone.player2scoreLabel];
     
+    [[NSNotificationCenter defaultCenter] addObserver:newScorezone
+                                             selector:@selector(updateScoreLabelSizesForTurn:)
+                                                 name:TURN_CHANGED
+                                               object:NULL];
+    
     return newScorezone;
 }
 
@@ -57,4 +62,27 @@
     }
 }
 
+- (void)updateScoreLabelSizesForTurn:(NSNotification *)notification {
+    SKAction *scaleUp = [SKAction scaleTo:1.1 duration:0.2];
+    SKAction *scaleDown = [SKAction scaleTo:1.0 duration:0.2];
+    
+    
+    NSNumber *turn = notification.object;
+    if (turn.intValue == kTRTrianglePieceTypeRed) {
+        [self.player1scoreLabel runAction:scaleUp];
+        [self.player2scoreLabel runAction:scaleDown];
+    }
+    
+    if (turn.intValue == kTRTrianglePieceTypeBlue) {
+        [self.player1scoreLabel runAction:scaleDown];
+        [self.player2scoreLabel runAction:scaleUp];
+    }
+}
+
 @end
+
+
+
+
+
+

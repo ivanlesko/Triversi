@@ -103,18 +103,22 @@
         [self updatePlayerScores];
         
         // When a new piece has been placed, check if the opponent can make a move.
-        NSNumber *possibleMoves;
+        NSNumber *possibleMovesForNextPlayer;
         if (self.game.turn == kTRTrianglePieceTypeRed) {
-            possibleMoves = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeBlue];
+            possibleMovesForNextPlayer = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeBlue];
         } else {
-            possibleMoves = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeRed];
+            possibleMovesForNextPlayer = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeRed];
         }
         
-        if (possibleMoves.intValue > 0) {
+        if (possibleMovesForNextPlayer.intValue > 0) {
             [self changeTurn];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
                                                                 object:@(self.game.turn)];
+        } else {
+            /******************
+             The game is a draw.  Implement draw logic here.
+             ******************/
         }
     }
 }

@@ -39,6 +39,7 @@
 		8536A9F318FB6D4000BA8C23 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F218FB6D4000BA8C23 /* Player.m */; };
 		8536A9F718FB7D4F00BA8C23 /* UIColor+HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */; };
 		8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */; };
+		8552C27F1908C4450090CC02 /* TurnLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8552C27E1908C4450090CC02 /* TurnLabel.m */; };
 		857098B818FF58FA0085121D /* PieceIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 857098B718FF58FA0085121D /* PieceIndex.m */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,8 @@
 		8536A9FB18FB802A00BA8C23 /* TriversiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriversiViewController.h; sourceTree = "<group>"; };
 		8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriversiViewController.m; sourceTree = "<group>"; };
 		8536A9FE18FBA44D00BA8C23 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8552C27D1908C4450090CC02 /* TurnLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnLabel.h; sourceTree = "<group>"; };
+		8552C27E1908C4450090CC02 /* TurnLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnLabel.m; sourceTree = "<group>"; };
 		857098B618FF58FA0085121D /* PieceIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceIndex.h; sourceTree = "<group>"; };
 		857098B718FF58FA0085121D /* PieceIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceIndex.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +244,8 @@
 				8536A9E918FB427000BA8C23 /* Piece.m */,
 				85353C46190866E2008D9C46 /* Scorezone.h */,
 				85353C47190866E2008D9C46 /* Scorezone.m */,
+				8552C27D1908C4450090CC02 /* TurnLabel.h */,
+				8552C27E1908C4450090CC02 /* TurnLabel.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				8536A9E418FB39C600BA8C23 /* SKButton.m in Sources */,
 				8536A9DF18FB39BD00BA8C23 /* NSNumber+DefaultNumbers.m in Sources */,
 				8536A9E018FB39BD00BA8C23 /* NSString+FilePaths.m in Sources */,
+				8552C27F1908C4450090CC02 /* TurnLabel.m in Sources */,
 				8536A9F318FB6D4000BA8C23 /* Player.m in Sources */,
 				8536A9F718FB7D4F00BA8C23 /* UIColor+HexColors.m in Sources */,
 				8509769B18FCAFFC00E22A91 /* Move.m in Sources */,

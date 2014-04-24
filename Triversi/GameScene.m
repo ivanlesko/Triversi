@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "Piece.h"
+#import "TurnLabel.h"
 
 @implementation GameScene
 
@@ -28,6 +29,14 @@
         [self.game addScorezoneAsListener:scorezone];
         
         [self updatePlayerScores];
+        
+        TurnLabel *turnLabel = [TurnLabel labelNodeWithFontNamed:@"Helvetica-Bold"];
+        turnLabel.position = CGPointMake(size.width / 2.0, size.height * 0.05);
+        
+        [self addChild:turnLabel];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
+                                                            object:@(self.game.turn)];
     }
     
     return self;
@@ -112,6 +121,9 @@
         
         [self changeTurn];
         [self updatePlayerScores];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
+                                                            object:@(self.game.turn)];
     }
 }
 

@@ -49,4 +49,5 @@ typedef enum {
 #pragma mark - Notifications
 
 #define PLACED_NEW_PIECE @"placedNewPiece"
+#define TURN_CHANGED     @"turnChanged"
 

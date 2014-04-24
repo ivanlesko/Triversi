@@ -13,6 +13,7 @@
 + (Scorezone *)createScorezoneAtPosition:(CGPoint)position {
     Scorezone *newScorezone = [Scorezone node];
     newScorezone.position = position;
+    newScorezone.name = @"scoreZone";
     
     CGFloat labelDistance = 0.0f;
     CGFloat textSize = 0.0f;

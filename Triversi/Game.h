@@ -28,6 +28,8 @@
 /// The current player's turn.  Can either be player1 or player2
 @property (nonatomic) kTRTrianglePieceType turn;
 
+@property (nonatomic, strong) Board *board;
+
 @property (nonatomic, strong) NSNumber *player1score;
 @property (nonatomic, strong) NSNumber *player2score;
 

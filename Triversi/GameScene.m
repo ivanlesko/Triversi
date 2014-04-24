@@ -15,14 +15,19 @@
     if (self = [super initWithSize:size]) {
         self.board = [Board createNewBoardAtPosition:CGPointMake(size.width / 2.0, size.height / 2.0)];
         [self addChild:self.board];
-        [self.board placeInitialPieces];
         
         self.game = [[Game alloc] init];
+        self.game.board = self.board;
+        
+        // Place the initial pieces after the board has been created.
+        [self.board placeInitialPieces];
         
         Scorezone *scorezone = [Scorezone createScorezoneAtPosition:CGPointMake(size.width / 2.0, size.height * 0.9)];
         [self addChild:scorezone];
         
         [self.game addScorezoneAsListener:scorezone];
+        
+        [self updatePlayerScores];
     }
     
     return self;
@@ -290,6 +295,7 @@
 #pragma mark - Scoring Logic
 
 - (void)updatePlayerScores {
+    
     self.game.player1score = @(0);
     self.game.player2score = @(0);
     
@@ -343,7 +349,6 @@
         [piece flipPiece];  
     }
 }
-
 
 - (void)changeTurn {
     if (self.game.turn == kTRTrianglePieceTypeRed) {

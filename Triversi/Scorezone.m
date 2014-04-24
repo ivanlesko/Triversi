@@ -29,7 +29,7 @@
     newScorezone.player1scoreLabel.fontColor = [SKColor player1Color];
     newScorezone.player1scoreLabel.position = CGPointMake(-labelDistance, 0);
     newScorezone.player1scoreLabel.fontSize = textSize;
-    newScorezone.player1scoreLabel.text = @"3";
+    newScorezone.player1scoreLabel.text = @"0";
     newScorezone.player1scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     [newScorezone addChild:newScorezone.player1scoreLabel];
     
@@ -37,7 +37,7 @@
     newScorezone.player2scoreLabel.fontColor = [SKColor player2Color];
     newScorezone.player2scoreLabel.position = CGPointMake(labelDistance, 0);
     newScorezone.player2scoreLabel.fontSize = textSize;
-    newScorezone.player2scoreLabel.text = @"3";
+    newScorezone.player2scoreLabel.text = @"0";
     newScorezone.player2scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     [newScorezone addChild:newScorezone.player2scoreLabel];
     

@@ -43,12 +43,12 @@
 }
 
 - (void)addScorezoneAsListener:(Scorezone *)scorezone {
-    [self addObserver:scorezone
+    [self addObserver:(NSObject *)scorezone
            forKeyPath:NSStringFromSelector(@selector(player1score))
               options:NSKeyValueObservingOptionNew
               context:NULL];
     
-    [self addObserver:scorezone
+    [self addObserver:(NSObject *)scorezone
            forKeyPath:NSStringFromSelector(@selector(player2score))
               options:NSKeyValueObservingOptionNew
               context:NULL];

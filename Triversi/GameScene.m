@@ -31,6 +31,8 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
                                                             object:@(self.game.turn)];
+        
+        NSNumber *possibleMoveCount = [self possibleMoveCountForPlayer:self.game.turn];
     }
     
     return self;
@@ -51,21 +53,6 @@
                     
                     // Place a new piece at the given touch position.
                     [self placeNewPieceForTouched:touchedPiece];
-                    
-//                    NSArray *possibleMoves;
-//                    if (self.game.turn == kTRTrianglePieceTypeRed) {
-//                        possibleMoves =  [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
-//                                                        withDirection:touchedPiece.direction
-//                                                             withType:kTRTrianglePieceTypeRed];
-//                    } else {
-//                        possibleMoves = [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
-//                                                       withDirection:touchedPiece.direction
-//                                                            withType:kTRTrianglePieceTypeBlue];
-//                    }
-                    
-//                    NSLog(@"turn: %d", self.game.turn);
-//                    NSLog(@"possible moves: %d", possibleMoves.count);
-//                    [self changeTurn];
                     
                 }
             } else {
@@ -113,11 +100,22 @@
             }
         }
         
-        [self changeTurn];
         [self updatePlayerScores];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
-                                                            object:@(self.game.turn)];
+        // When a new piece has been placed, check if the opponent can make a move.
+        NSNumber *possibleMoves;
+        if (self.game.turn == kTRTrianglePieceTypeRed) {
+            possibleMoves = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeBlue];
+        } else {
+            possibleMoves = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeRed];
+        }
+        
+        if (possibleMoves.intValue > 0) {
+            [self changeTurn];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
+                                                                object:@(self.game.turn)];
+        }
     }
 }
 
@@ -296,6 +294,47 @@
     }
     
     return @[east, west, northEast, southEast, southWest, northWest];
+}
+
+- (NSNumber *)possibleMoveCountForPlayer:(kTRTrianglePieceType)type {
+    NSMutableArray *emptySpaces = [NSMutableArray array];
+    
+    // This function checks all of the possible moves that can be made for the given player.
+    for (NSArray *row in self.board.playedPieces) {
+        for (Piece *piece in row) {
+            if ([piece isKindOfClass:[Piece class]]) {
+                // Check all of the adjacent pieces for pieces on the board.
+                for (PieceIndex *adjacentIndex in piece.adjacentPieces) {
+                    // Check the pieces that are opposite of the player we are checking for
+                    if (piece.type != type) {
+                        // Make sure the space we are checking is on the board and is an empty space.
+                        if ([self isOnBoardX:adjacentIndex.row Y:adjacentIndex.column] &&
+                            [[[self.board.playedPieces objectAtIndex:adjacentIndex.row.integerValue] objectAtIndex:adjacentIndex.column.integerValue] isKindOfClass:[NSNull class]]) {
+                            // If we found a possible space to check, add that PieceIndex to the emptySpaces array.
+                            [emptySpaces addObject:adjacentIndex];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    NSNumber *moveCounter = @(0);
+    
+    // Check possible moves if there is atleast one empty space.
+    if (emptySpaces.count > 0) {
+        for (PieceIndex *adjacentIndex in emptySpaces) {
+            // Find possible moves for each empty space PieceIndex.
+            Piece *emptyPiece = [[self.board.emptyPieces objectAtIndex:adjacentIndex.row.integerValue] objectAtIndex:adjacentIndex.column.integerValue];
+            NSArray *possibleMoves = [self indexesForTouchedIndex:adjacentIndex withDirection:emptyPiece.direction withType:type];
+            if (possibleMoves.count > 0) {
+                // If a move can be made, incriment the move counter by one.
+                moveCounter = @(moveCounter.intValue + 1);
+            }
+        }
+    }
+    
+    return moveCounter;
 }
 
 #pragma mark - Scoring Logic

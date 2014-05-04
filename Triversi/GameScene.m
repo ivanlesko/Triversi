@@ -105,8 +105,10 @@
         // When a new piece has been placed, check if the opponent can make a move.
         NSNumber *possibleMovesForNextPlayer;
         if (self.game.turn == kTRTrianglePieceTypeRed) {
+            // Find all of the possible moves for the red player.
             possibleMovesForNextPlayer = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeBlue];
         } else {
+            // Find all of the possible moves for the blue player.
             possibleMovesForNextPlayer = [self possibleMoveCountForPlayer:kTRTrianglePieceTypeRed];
         }
         

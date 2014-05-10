@@ -13,6 +13,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSString *triangleTexturesFolderPath = [[NSString documentsDirectory] stringByAppendingPathComponent:@"triangleTextures"];
+    
+    NSString *player1UpPath   = [[triangleTexturesFolderPath stringByAppendingPathComponent:@"player1Up"] stringByAppendingPathExtension:@"png"];
+    NSString *player1DownPath = [[triangleTexturesFolderPath stringByAppendingPathComponent:@"player1Down"] stringByAppendingPathExtension:@"png"];
+    NSString *player2UpPath   = [[triangleTexturesFolderPath stringByAppendingPathComponent:@"player2Up"] stringByAppendingPathExtension:@"png"];
+    NSString *player2DownPath = [[triangleTexturesFolderPath stringByAppendingPathComponent:@"player2Down"] stringByAppendingPathExtension:@"png"];
+    
+    NSArray *paths = @[player1UpPath, player2UpPath, player1DownPath, player2DownPath];
+    
+    for (NSString *path in paths) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) NSLog(@"file exists at path: %@", path);
+        else NSLog(@"file does not exist at path: %@", path);
+    }
+    
     return YES;
 }
 							

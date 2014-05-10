@@ -9,6 +9,14 @@
 #import "TriversiViewController.h"
 #import "GameScene.h"
 
+@interface TriversiViewController() {
+    
+}
+
+@property (nonatomic, strong) SKView *skView;
+
+@end
+
 @implementation TriversiViewController
 
 - (void)viewDidLoad
@@ -16,9 +24,9 @@
     [super viewDidLoad];
     
     // Configure the view.
-    SKView * skView = (SKView *)self.view;
-    skView.showsFPS = NO;
-    skView.showsNodeCount = NO;
+    self.skView = (SKView *)self.view;
+    self.skView.showsFPS = NO;
+    self.skView.showsNodeCount = NO;
     
     // Create and configure the scene.
     GameScene * scene = [[GameScene alloc] initWithSize:self.view.bounds.size];
@@ -26,7 +34,7 @@
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
-    [skView presentScene:scene];
+    [self.skView presentScene:scene];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +44,16 @@
         // Custom initialization
     }
     return self;
+}
+
+- (SKTexture *)createTriangleTextureForPieceType:(kTRTrianglePieceType)pieceType
+                                   withDirection:(kTRTriangleDirection)direction {
+    
+    SKTexture *text = [SKTexture textureWithImageNamed:@"foo"];
+    
+    
+    
+    return text;
 }
 
 - (void)didReceiveMemoryWarning

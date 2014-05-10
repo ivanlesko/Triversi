@@ -29,6 +29,11 @@
 @property (nonatomic) PieceIndex *topPiece;
 @property (nonatomic) PieceIndex *bottomPiece;
 
+/// Creates a new piece but does not place it on the board.
+/// This method is mostly used to create the textures for the documents directory.
++ (id)createPieceWithPieceType:(kTRTrianglePieceType)pieceType
+                 withDirection:(kTRTriangleDirection)direction;
+
 /// Places a new piece on the board with a given row, column, position, type, and direction.
 + (id)placePieceAtRow:(NSNumber *)row
             andColumn:(NSNumber *)column

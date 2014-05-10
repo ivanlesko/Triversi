@@ -10,6 +10,62 @@
 
 @implementation Piece
 
++ (Piece *)createPieceWithPieceType:(kTRTrianglePieceType)pieceType
+                 withDirection:(kTRTriangleDirection)direction {
+    Piece *newPiece = [Piece node];
+    
+    newPiece.type = pieceType;
+    newPiece.direction = direction;
+    
+    // Set the size of the piece depending on what device the user is on.
+    CGFloat sideLength;
+    if ([UIDevice iPhone]) {
+        sideLength = 320.0f / 5.8181f;
+    }
+    
+    if ([UIDevice iPad]) {
+        sideLength = 768.0f / 6.8181f;
+    }
+    
+    CGFloat height = sideLength * (sqrtf(3) / 2.0);
+    
+    UIBezierPath *path = [[UIBezierPath alloc] init];
+    
+    // Set the direction of the piece depending on the up/down enum.
+    switch (direction) {
+        case kTRTriangleDirectionDown:
+            [path moveToPoint:CGPointMake(0, -height / 2.0)];
+            [path addLineToPoint:CGPointMake(-sideLength / 2.0, height / 2.0)];
+            [path addLineToPoint:CGPointMake(sideLength / 2.0, height / 2.0)];
+            [path addLineToPoint:CGPointMake(0, -height / 2.0)];
+            break;
+            
+        case kTRTriangleDirectionUp:
+            [path moveToPoint:CGPointMake(0, height / 2.0)];
+            [path addLineToPoint:CGPointMake(-sideLength / 2.0, -height / 2.0)];
+            [path addLineToPoint:CGPointMake(sideLength / 2.0, -height / 2.0)];
+            [path addLineToPoint:CGPointMake(0, height / 2.0)];
+            break;
+    }
+    
+    // Set the piece's color based on the pieceType enum.;
+    switch (pieceType) {
+        case kTRTrianglePieceTypeNeutral:
+            newPiece.fillColor = [SKColor lightGrayColor];
+            break;
+            
+        case kTRTrianglePieceTypeRed:
+            newPiece.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
+            break;
+            
+        case kTRTrianglePieceTypeBlue:
+            newPiece.fillColor = [SKColor colorWithHexString:@"395c78"];
+            break;
+    }
+    
+    return newPiece;
+}
+
 + (Piece *)placePieceAtRow:(NSNumber *)row
                  andColumn:(NSNumber *)column
                 atPosition:(CGPoint)position
@@ -17,10 +73,9 @@
              withDirection:(kTRTriangleDirection)direction
                  withBoard:(Board *)board
 {
-    Piece *newPiece = [Piece node];
+    Piece *newPiece = [Piece createPieceWithPieceType:pieceType
+                                        withDirection:direction];
     newPiece.position  = position;
-    newPiece.type = pieceType;
-    newPiece.direction = direction;
     newPiece.row  = row;
     newPiece.column = column;
     newPiece.board = board;

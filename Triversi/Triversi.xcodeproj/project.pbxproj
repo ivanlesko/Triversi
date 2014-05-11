@@ -39,6 +39,7 @@
 		8536A9F318FB6D4000BA8C23 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F218FB6D4000BA8C23 /* Player.m */; };
 		8536A9F718FB7D4F00BA8C23 /* UIColor+HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */; };
 		8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */; };
+		85568315191ECF3300F9712A /* TextureStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 85568314191ECF3300F9712A /* TextureStore.m */; };
 		857098B818FF58FA0085121D /* PieceIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 857098B718FF58FA0085121D /* PieceIndex.m */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,8 @@
 		8536A9FB18FB802A00BA8C23 /* TriversiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriversiViewController.h; sourceTree = "<group>"; };
 		8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriversiViewController.m; sourceTree = "<group>"; };
 		8536A9FE18FBA44D00BA8C23 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		85568313191ECF3300F9712A /* TextureStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureStore.h; sourceTree = "<group>"; };
+		85568314191ECF3300F9712A /* TextureStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureStore.m; sourceTree = "<group>"; };
 		857098B618FF58FA0085121D /* PieceIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceIndex.h; sourceTree = "<group>"; };
 		857098B718FF58FA0085121D /* PieceIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceIndex.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +244,8 @@
 				8536A9E918FB427000BA8C23 /* Piece.m */,
 				85353C46190866E2008D9C46 /* Scorezone.h */,
 				85353C47190866E2008D9C46 /* Scorezone.m */,
+				85568313191ECF3300F9712A /* TextureStore.h */,
+				85568314191ECF3300F9712A /* TextureStore.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -336,7 +341,7 @@
 		8536A98418FB38A800BA8C23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ivonski;
 				TargetAttributes = {
 					8536A98B18FB38A800BA8C23 = {
@@ -399,6 +404,7 @@
 				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
 				8536A9ED18FB64B900BA8C23 /* Game.m in Sources */,
 				85353C48190866E2008D9C46 /* Scorezone.m in Sources */,
+				85568315191ECF3300F9712A /* TextureStore.m in Sources */,
 				8502ABF518FEE0F400BCACEA /* UIDevice+DeviceCheck.m in Sources */,
 				8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */,
 				857098B818FF58FA0085121D /* PieceIndex.m in Sources */,

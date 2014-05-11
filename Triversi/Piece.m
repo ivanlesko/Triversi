@@ -7,64 +7,9 @@
 //
 
 #import "Piece.h"
+#import "TextureStore.h"
 
 @implementation Piece
-
-+ (Piece *)createPieceWithPieceType:(kTRTrianglePieceType)pieceType
-                 withDirection:(kTRTriangleDirection)direction {
-    Piece *newPiece = [Piece node];
-    
-    newPiece.type = pieceType;
-    newPiece.direction = direction;
-    
-    // Set the size of the piece depending on what device the user is on.
-    CGFloat sideLength;
-    if ([UIDevice iPhone]) {
-        sideLength = 320.0f / 5.8181f;
-    }
-    
-    if ([UIDevice iPad]) {
-        sideLength = 768.0f / 6.8181f;
-    }
-    
-    CGFloat height = sideLength * (sqrtf(3) / 2.0);
-    
-    UIBezierPath *path = [[UIBezierPath alloc] init];
-    
-    // Set the direction of the piece depending on the up/down enum.
-    switch (direction) {
-        case kTRTriangleDirectionDown:
-            [path moveToPoint:CGPointMake(0, -height / 2.0)];
-            [path addLineToPoint:CGPointMake(-sideLength / 2.0, height / 2.0)];
-            [path addLineToPoint:CGPointMake(sideLength / 2.0, height / 2.0)];
-            [path addLineToPoint:CGPointMake(0, -height / 2.0)];
-            break;
-            
-        case kTRTriangleDirectionUp:
-            [path moveToPoint:CGPointMake(0, height / 2.0)];
-            [path addLineToPoint:CGPointMake(-sideLength / 2.0, -height / 2.0)];
-            [path addLineToPoint:CGPointMake(sideLength / 2.0, -height / 2.0)];
-            [path addLineToPoint:CGPointMake(0, height / 2.0)];
-            break;
-    }
-    
-    // Set the piece's color based on the pieceType enum.;
-    switch (pieceType) {
-        case kTRTrianglePieceTypeNeutral:
-            newPiece.fillColor = [SKColor lightGrayColor];
-            break;
-            
-        case kTRTrianglePieceTypeRed:
-            newPiece.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
-            break;
-            
-        case kTRTrianglePieceTypeBlue:
-            newPiece.fillColor = [SKColor colorWithHexString:@"395c78"];
-            break;
-    }
-    
-    return newPiece;
-}
 
 + (Piece *)placePieceAtRow:(NSNumber *)row
                  andColumn:(NSNumber *)column
@@ -73,8 +18,10 @@
              withDirection:(kTRTriangleDirection)direction
                  withBoard:(Board *)board
 {
-    Piece *newPiece = [Piece createPieceWithPieceType:pieceType
+    Piece *newPiece = [TextureStore createPieceWithPieceType:pieceType
                                         withDirection:direction];
+    
+    NSLog(@"new piece class: %@", [newPiece class]);
     newPiece.position  = position;
     newPiece.row  = row;
     newPiece.column = column;
@@ -113,58 +60,6 @@
         newPiece.name = [NSString stringWithFormat:@"piece_%@%@", newPiece.row, newPiece.column];
     }
     
-    // Set the size of the piece depending on what device the user is on.
-    CGFloat sideLength;
-    if ([UIDevice iPhone]) {
-        sideLength = 320.0f / 5.8181f;
-    }
-    
-    if ([UIDevice iPad]) {
-        sideLength = 768.0f / 6.8181f;
-    }
-    
-    CGFloat height = sideLength * (sqrtf(3) / 2.0);
-    
-    UIBezierPath *path = [[UIBezierPath alloc] init];
-    
-    // Set the direction of the piece depending on the up/down enum.
-    switch (direction) {
-        case kTRTriangleDirectionDown:
-            [path moveToPoint:CGPointMake(0, -height / 2.0)];
-            [path addLineToPoint:CGPointMake(-sideLength / 2.0, height / 2.0)];
-            [path addLineToPoint:CGPointMake(sideLength / 2.0, height / 2.0)];
-            [path addLineToPoint:CGPointMake(0, -height / 2.0)];
-            break;
-            
-        case kTRTriangleDirectionUp:
-            [path moveToPoint:CGPointMake(0, height / 2.0)];
-            [path addLineToPoint:CGPointMake(-sideLength / 2.0, -height / 2.0)];
-            [path addLineToPoint:CGPointMake(sideLength / 2.0, -height / 2.0)];
-            [path addLineToPoint:CGPointMake(0, height / 2.0)];
-            break;
-    }
-    
-    newPiece.path = path.CGPath;
-    newPiece.touchableArea = path;
-    newPiece.antialiased = YES;
-    
-    // Set the piece's color based on the pieceType enum.;
-    switch (pieceType) {
-        case kTRTrianglePieceTypeNeutral:
-            newPiece.fillColor = [SKColor lightGrayColor];
-            break;
-            
-        case kTRTrianglePieceTypeRed:
-            newPiece.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
-            break;
-            
-        case kTRTrianglePieceTypeBlue:
-            newPiece.fillColor = [SKColor colorWithHexString:@"395c78"];
-            break;
-    }
-    
-    newPiece.lineWidth = 0.25f;
-    
     // Post a notification that a new piece has been placed on the board.
     [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
     
@@ -175,12 +70,12 @@
     switch (self.type) {
         case kTRTrianglePieceTypeBlue:
             self.type = kTRTrianglePieceTypeRed;
-            self.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
+//            self.fillColor = [SKColor colorWithHexString:@"bd3b3b"];
             break;
             
         case kTRTrianglePieceTypeRed:
             self.type = kTRTrianglePieceTypeBlue;
-            self.fillColor = [SKColor colorWithHexString:@"395c78"];
+//            self.fillColor = [SKColor colorWithHexString:@"395c78"];
             break;
             
         case kTRTrianglePieceTypeNeutral:

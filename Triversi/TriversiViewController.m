@@ -9,6 +9,8 @@
 #import "TriversiViewController.h"
 #import "GameScene.h"
 
+#import "TextureStore.h"
+
 @interface TriversiViewController() {
     
 }
@@ -25,8 +27,8 @@
     
     // Configure the view.
     self.skView = (SKView *)self.view;
-    self.skView.showsFPS = NO;
-    self.skView.showsNodeCount = NO;
+    self.skView.showsFPS = YES;
+    self.skView.showsNodeCount = YES;
     
     // Create and configure the scene.
     GameScene * scene = [[GameScene alloc] initWithSize:self.view.bounds.size];
@@ -35,6 +37,17 @@
     
     // Present the scene.
     [self.skView presentScene:scene];
+    
+    TextureStore *textGen = [TextureStore sharedInstance];
+    textGen.view = self.skView;
+    
+    SKTexture *text = [[TextureStore sharedInstance] textureFromPieceType:kTRTrianglePieceTypeBlue andDirection:kTRTriangleDirectionDown];
+    NSLog(@"test texture: %@", text);
+    
+    SKSpriteNode *triNode = [SKSpriteNode spriteNodeWithTexture:text];
+    triNode.position = self.view.center;
+    
+    [scene addChild:triNode];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,16 +57,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (SKTexture *)createTriangleTextureForPieceType:(kTRTrianglePieceType)pieceType
-                                   withDirection:(kTRTriangleDirection)direction {
-    
-    SKTexture *text = [SKTexture textureWithImageNamed:@"foo"];
-    
-    
-    
-    return text;
 }
 
 - (void)didReceiveMemoryWarning

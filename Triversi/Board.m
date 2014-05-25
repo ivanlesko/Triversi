@@ -83,8 +83,6 @@
                                              selector:@selector(replaceNullWithNewPiece:)
                                                  name:PLACED_NEW_PIECE
                                                object:nil];
-    
-    
     return newBoard;
 }
 

@@ -20,7 +20,7 @@
         self.game.board = self.board;
         
         // Place the initial pieces after the board has been created.
-//        [self.board placeInitialPieces];
+        [self.board placeInitialPieces];
         
         Scorezone *scorezone = [Scorezone createScorezoneAtPosition:CGPointMake(size.width / 2.0, size.height * 0.9)];
         [self addChild:scorezone];
@@ -53,7 +53,6 @@
                     
                     // Place a new piece at the given touch position.
                     [self placeNewPieceForTouched:touchedPiece];
-                    
                 }
             } else {
                 // piece already exists.

@@ -41,6 +41,7 @@
 		8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */; };
 		85568315191ECF3300F9712A /* TextureStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 85568314191ECF3300F9712A /* TextureStore.m */; };
 		857098B818FF58FA0085121D /* PieceIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 857098B718FF58FA0085121D /* PieceIndex.m */; };
+		85A6754C1932A083001EF690 /* UIBezierPath+TriversiShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6754B1932A083001EF690 /* UIBezierPath+TriversiShapes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		85568314191ECF3300F9712A /* TextureStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureStore.m; sourceTree = "<group>"; };
 		857098B618FF58FA0085121D /* PieceIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceIndex.h; sourceTree = "<group>"; };
 		857098B718FF58FA0085121D /* PieceIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceIndex.m; sourceTree = "<group>"; };
+		85A6754A1932A083001EF690 /* UIBezierPath+TriversiShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+TriversiShapes.h"; sourceTree = "<group>"; };
+		85A6754B1932A083001EF690 /* UIBezierPath+TriversiShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+TriversiShapes.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +296,8 @@
 				8536A9F618FB7D4F00BA8C23 /* UIColor+HexColors.m */,
 				8502ABF318FEE0F400BCACEA /* UIDevice+DeviceCheck.h */,
 				8502ABF418FEE0F400BCACEA /* UIDevice+DeviceCheck.m */,
+				85A6754A1932A083001EF690 /* UIBezierPath+TriversiShapes.h */,
+				85A6754B1932A083001EF690 /* UIBezierPath+TriversiShapes.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */,
+				85A6754C1932A083001EF690 /* UIBezierPath+TriversiShapes.m in Sources */,
 				8536A9EA18FB427000BA8C23 /* Piece.m in Sources */,
 				8536A9A218FB38A800BA8C23 /* AppDelegate.m in Sources */,
 				8536A9ED18FB64B900BA8C23 /* Game.m in Sources */,

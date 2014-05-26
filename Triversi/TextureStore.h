@@ -12,6 +12,8 @@
 
 /**
  *  The texture store contains all the textures the game will use.
+ *  It's important to note that we should only ever use the 6 texture properties that the TextureStore has.
+ *  There should only ever be 6 different triangle textures.  This is to save memory and slightly increase performance.
  *  Access the textures by calling @p[[TextureStore sharedInstance] player1Up]@p
  */
 @interface TextureStore : NSObject
@@ -32,15 +34,5 @@
  *  @return The TextureStore.
  */
 + (TextureStore *)sharedInstance;
-
-/**
- *  Generates a triangle texture from the TextureStore's view.
- *
- *  @param pieceType The piece color.
- *  @param direction The piece direction
- *
- *  @return A red or blue triangle texture.
- */
-- (SKTexture *)textureFromPieceType:(kTRTrianglePieceType)pieceType andDirection:(kTRTriangleDirection)direction;
 
 @end

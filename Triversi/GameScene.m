@@ -31,8 +31,6 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:TURN_CHANGED
                                                             object:@(self.game.turn)];
-        
-        NSNumber *possibleMoveCount = [self possibleMoveCountForPlayer:self.game.turn];
     }
     
     return self;
@@ -63,15 +61,16 @@
 
 - (void)placeNewPieceForTouched:(Piece *)touchedPiece {
     NSArray *piecesToFlip;
+    
     if (self.game.turn == kTRTrianglePieceTypeRed) {
-        piecesToFlip =[self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
-                                     withDirection:touchedPiece.direction
-                                          withType:kTRTrianglePieceTypeRed];
+        piecesToFlip = [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
+                                      withDirection:touchedPiece.direction
+                                           withType:kTRTrianglePieceTypeRed];
         
     } else if (self.game.turn == kTRTrianglePieceTypeBlue) {
-        piecesToFlip =  [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
-                                       withDirection:touchedPiece.direction
-                                            withType:kTRTrianglePieceTypeBlue];
+        piecesToFlip = [self indexesForTouchedIndex:[PieceIndex createPieceIndexWithRow:touchedPiece.row withColumn:touchedPiece.column]
+                                      withDirection:touchedPiece.direction
+                                           withType:kTRTrianglePieceTypeBlue];
     }
     
     if (piecesToFlip.count > 0) {
@@ -156,7 +155,6 @@
             
             // Keep traversing in the x and y direction as long as the next piece is the opponent's color.
             while ([self pieceExistsAtIndex:x Y:y] && [(Piece *)[self pieceAtIndex:x Y:y] type] != type) {
-                
                 xDirection = [self xDirectionForTraverseCount:traverseCount andDirectionsArray:directions withDirectionIndex:i];
                 yDirection = [self yDirectionForTraverseCount:traverseCount andDirectionsArray:directions withDirectionIndex:i];
                 

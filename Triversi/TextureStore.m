@@ -27,24 +27,23 @@
         AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         self.view = delegate.view;
         
-        self.player1Up = [self textureFromPieceType:kTRTrianglePieceTypeRed andDirection:kTRTriangleDirectionUp];
-        self.player1Down = [self textureFromPieceType:kTRTrianglePieceTypeRed andDirection:kTRTriangleDirectionDown];
+        self.player1Up   = [self textureFromPieceType:kTRTrianglePieceTypeRed     andDirection:kTRTriangleDirectionUp];
+        self.player1Down = [self textureFromPieceType:kTRTrianglePieceTypeRed     andDirection:kTRTriangleDirectionDown];
         
-        self.player2Up = [self textureFromPieceType:kTRTrianglePieceTypeBlue andDirection:kTRTriangleDirectionUp];
-        self.player2Down = [self textureFromPieceType:kTRTrianglePieceTypeBlue andDirection:kTRTriangleDirectionDown];
+        self.player2Up   = [self textureFromPieceType:kTRTrianglePieceTypeBlue    andDirection:kTRTriangleDirectionUp];
+        self.player2Down = [self textureFromPieceType:kTRTrianglePieceTypeBlue    andDirection:kTRTriangleDirectionDown];
         
-        self.neutralUp = [self textureFromPieceType:kTRTrianglePieceTypeNeutral andDirection:kTRTriangleDirectionUp];
+        self.neutralUp   = [self textureFromPieceType:kTRTrianglePieceTypeNeutral andDirection:kTRTriangleDirectionUp];
         self.neutralDown = [self textureFromPieceType:kTRTrianglePieceTypeNeutral andDirection:kTRTriangleDirectionDown];
     }
     
     return self;
 }
 
+// Creates a SKShapeNode (yucky!!!!) that will be converted to an SKTexture.
 + (SKShapeNode *)createPieceWithPieceType:(kTRTrianglePieceType)pieceType
                             withDirection:(kTRTriangleDirection)direction {
     SKShapeNode *newPiece = [SKShapeNode node];
-    
-    ////// Path Creation //////
     
     // Set the piece's color based on the pieceType enum.
     switch (pieceType) {
@@ -68,6 +67,14 @@
     return newPiece;
 }
 
+/**
+ *  Generates a triangle texture from the TextureStore's view.
+ *
+ *  @param pieceType The piece color.
+ *  @param direction The piece direction
+ *
+ *  @return A red or blue triangle texture.
+ */
 - (SKTexture *)textureFromPieceType:(kTRTrianglePieceType)pieceType andDirection:(kTRTriangleDirection)direction {
     SKShapeNode *triangle = [TextureStore createPieceWithPieceType:pieceType withDirection:direction];
     

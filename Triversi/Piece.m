@@ -57,6 +57,7 @@
     newPiece.board = board;
     newPiece.adjacentPieces = [NSMutableArray array];
     newPiece.direction = direction;
+    newPiece.touchableArea = [UIBezierPath acuteTriangleForDirection:newPiece.direction];
 
     // Set the left piece if it is not on the left edge.
     if (newPiece.column > 0) {
@@ -84,7 +85,6 @@
         }
     }
     
-    newPiece.touchableArea = [UIBezierPath acuteTriangleForDirection:newPiece.direction];
     
     if (pieceType == kTRTrianglePieceTypeNeutral) {
         newPiece.name = [NSString stringWithFormat:@"placeholder_%@%@", newPiece.row, newPiece.column];

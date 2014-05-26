@@ -23,7 +23,7 @@
     
     // Up facing player 1 piece
     if (pieceType == kTRTrianglePieceTypeRed && direction == kTRTriangleDirectionUp) {
-        newPiece = [Piece spriteNodeWithTexture:[[TextureStore sharedInstance] player1Up]]; 
+        newPiece = [Piece spriteNodeWithTexture:[[TextureStore sharedInstance] player1Up]];
     }
     
     // Down facing player 1 piece
@@ -57,6 +57,7 @@
     newPiece.board = board;
     newPiece.adjacentPieces = [NSMutableArray array];
     newPiece.direction = direction;
+    newPiece.type = pieceType;
     newPiece.touchableArea = [UIBezierPath acuteTriangleForDirection:newPiece.direction];
 
     // Set the left piece if it is not on the left edge.
@@ -94,8 +95,6 @@
     // Post a notification that a new piece has been placed on the board.
     [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
     
-    NSLog(@"%@", newPiece);
-    
     return newPiece;
 }
 
@@ -105,12 +104,24 @@
 - (void)flipPiece {
     switch (self.type) {
         case kTRTrianglePieceTypeBlue:
+            if (self.direction == kTRTriangleDirectionUp) {
+                self.texture = [[TextureStore sharedInstance] player1Up];
+            } else {
+                self.texture = [[TextureStore sharedInstance] player1Down];
+            }
+            
             self.type = kTRTrianglePieceTypeRed;
             break;
             
         case kTRTrianglePieceTypeRed:
             self.type = kTRTrianglePieceTypeBlue;
-//            self.fillColor = [SKColor colorWithHexString:@"395c78"];
+            if (self.direction == kTRTriangleDirectionUp) {
+                self.texture = [[TextureStore sharedInstance] player2Up];
+            } else {
+                self.texture = [[TextureStore sharedInstance] player2Down];
+            }
+            
+            self.type = kTRTrianglePieceTypeBlue;
             break;
             
         case kTRTrianglePieceTypeNeutral:

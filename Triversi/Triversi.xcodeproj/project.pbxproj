@@ -42,6 +42,7 @@
 		85568315191ECF3300F9712A /* TextureStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 85568314191ECF3300F9712A /* TextureStore.m */; };
 		857098B818FF58FA0085121D /* PieceIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 857098B718FF58FA0085121D /* PieceIndex.m */; };
 		85A6754C1932A083001EF690 /* UIBezierPath+TriversiShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A6754B1932A083001EF690 /* UIBezierPath+TriversiShapes.m */; };
+		85E7AAD11932EC90002EE9B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8536A9B818FB38A800BA8C23 /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E7AAD11932EC90002EE9B7 /* XCTest.framework in Frameworks */,
 				8536A99218FB38A800BA8C23 /* CoreGraphics.framework in Frameworks */,
 				8536A99418FB38A800BA8C23 /* UIKit.framework in Frameworks */,
 				8536A99618FB38A800BA8C23 /* SpriteKit.framework in Frameworks */,
@@ -562,6 +564,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Triversi/Triversi-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = YES;
@@ -580,6 +586,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Triversi/Triversi-Prefix.pch";
 				GCC_WARN_UNUSED_VALUE = YES;

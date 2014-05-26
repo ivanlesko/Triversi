@@ -60,7 +60,7 @@
     newPiece.touchableArea = [UIBezierPath acuteTriangleForDirection:newPiece.direction];
 
     // Set the left piece if it is not on the left edge.
-    if (newPiece.column > 0) {
+    if (newPiece.column.intValue > 0) {
         newPiece.leftPiece = [PieceIndex createPieceIndexWithRow:newPiece.row withColumn:@(newPiece.column.intValue - 1)];
         [newPiece.adjacentPieces addObject:newPiece.leftPiece];
     }
@@ -79,12 +79,11 @@
         }
     } else {
         // has a topPiece
-        if (newPiece.row > 0) {
+        if (newPiece.row.intValue > 0) {
             newPiece.topPiece = [PieceIndex createPieceIndexWithRow:@(newPiece.row.intValue - 1) withColumn:newPiece.column];
             [newPiece.adjacentPieces addObject:newPiece.topPiece];
         }
     }
-    
     
     if (pieceType == kTRTrianglePieceTypeNeutral) {
         newPiece.name = [NSString stringWithFormat:@"placeholder_%@%@", newPiece.row, newPiece.column];
@@ -94,6 +93,8 @@
     
     // Post a notification that a new piece has been placed on the board.
     [[NSNotificationCenter defaultCenter] postNotificationName:PLACED_NEW_PIECE object:newPiece];
+    
+    NSLog(@"%@", newPiece);
     
     return newPiece;
 }

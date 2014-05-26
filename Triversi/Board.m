@@ -24,8 +24,8 @@
     newBoard.triangleGrid.name = TRIANGLE_GRID;
     
     // We create a placeholder triangle just to use its dimensions.  It does not show up on the board.
-    Piece *placeholderTri = [Piece placePieceAtRow:0
-                                         andColumn:0
+    Piece *placeholderTri = [Piece placePieceAtRow:@(0)
+                                         andColumn:@(0)
                                         atPosition:CGPointMake(0, 0)
                                      withPieceType:kTRTrianglePieceTypeNeutral
                                      withDirection:kTRTriangleDirectionUp

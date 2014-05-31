@@ -41,6 +41,8 @@
 		8536A9FD18FB802A00BA8C23 /* TriversiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8536A9FC18FB802A00BA8C23 /* TriversiViewController.m */; };
 		85568315191ECF3300F9712A /* TextureStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 85568314191ECF3300F9712A /* TextureStore.m */; };
 		857098B818FF58FA0085121D /* PieceIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 857098B718FF58FA0085121D /* PieceIndex.m */; };
+		857A1720193A6B9000CD3D87 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858A75C2193A571A0062A0E0 /* GameKit.framework */; };
+		857A1729193A9B5700CD3D87 /* GCTurnBasedMatchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 857A1728193A9B5700CD3D87 /* GCTurnBasedMatchHelper.m */; };
 		858A75C3193A571A0062A0E0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858A75C2193A571A0062A0E0 /* GameKit.framework */; };
 		858A75CA193A5BD60062A0E0 /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A75C5193A5BD60062A0E0 /* GameCenterManager.m */; };
 		858A75CB193A5BD60062A0E0 /* NSDataAES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A75C7193A5BD60062A0E0 /* NSDataAES256.m */; };
@@ -117,6 +119,8 @@
 		85568314191ECF3300F9712A /* TextureStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureStore.m; sourceTree = "<group>"; };
 		857098B618FF58FA0085121D /* PieceIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceIndex.h; sourceTree = "<group>"; };
 		857098B718FF58FA0085121D /* PieceIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceIndex.m; sourceTree = "<group>"; };
+		857A1727193A9B5700CD3D87 /* GCTurnBasedMatchHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTurnBasedMatchHelper.h; sourceTree = "<group>"; };
+		857A1728193A9B5700CD3D87 /* GCTurnBasedMatchHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTurnBasedMatchHelper.m; sourceTree = "<group>"; };
 		858A75C2193A571A0062A0E0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		858A75C4193A5BD60062A0E0 /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
 		858A75C5193A5BD60062A0E0 /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				85E7AAD11932EC90002EE9B7 /* XCTest.framework in Frameworks */,
 				8536A99218FB38A800BA8C23 /* CoreGraphics.framework in Frameworks */,
 				8536A99418FB38A800BA8C23 /* UIKit.framework in Frameworks */,
+				857A1720193A6B9000CD3D87 /* GameKit.framework in Frameworks */,
 				8536A99618FB38A800BA8C23 /* SpriteKit.framework in Frameworks */,
 				8536A99018FB38A800BA8C23 /* Foundation.framework in Frameworks */,
 			);
@@ -327,6 +332,8 @@
 				858A75C7193A5BD60062A0E0 /* NSDataAES256.m */,
 				858A75C8193A5BD60062A0E0 /* Reachability.h */,
 				858A75C9193A5BD60062A0E0 /* Reachability.m */,
+				857A1727193A9B5700CD3D87 /* GCTurnBasedMatchHelper.h */,
+				857A1728193A9B5700CD3D87 /* GCTurnBasedMatchHelper.m */,
 			);
 			name = "Game Center";
 			sourceTree = "<group>";
@@ -380,6 +387,11 @@
 				TargetAttributes = {
 					8536A98B18FB38A800BA8C23 = {
 						DevelopmentTeam = PA483M26HF;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					8536A9B618FB38A800BA8C23 = {
 						TestTargetID = 8536A98B18FB38A800BA8C23;
@@ -441,6 +453,7 @@
 				85353C48190866E2008D9C46 /* Scorezone.m in Sources */,
 				85568315191ECF3300F9712A /* TextureStore.m in Sources */,
 				8502ABF518FEE0F400BCACEA /* UIDevice+DeviceCheck.m in Sources */,
+				857A1729193A9B5700CD3D87 /* GCTurnBasedMatchHelper.m in Sources */,
 				8536A9F018FB6D3600BA8C23 /* PlayerScore.m in Sources */,
 				857098B818FF58FA0085121D /* PieceIndex.m in Sources */,
 				858A75CC193A5BD60062A0E0 /* Reachability.m in Sources */,
@@ -594,6 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -605,6 +619,7 @@
 				INFOPLIST_FILE = "Triversi/Triversi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -616,6 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -627,6 +643,7 @@
 				INFOPLIST_FILE = "Triversi/Triversi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

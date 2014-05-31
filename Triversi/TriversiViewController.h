@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameCenterManager.h"
+#import "GCTurnBasedMatchHelper.h"
 
 @interface TriversiViewController : UIViewController
+
+- (IBAction)presentMatchMakingVC:(id)sender;
 
 @end

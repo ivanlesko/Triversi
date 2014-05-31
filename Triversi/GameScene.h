@@ -11,6 +11,10 @@
 #import "Game.h"
 #import "Scorezone.h"
 
+#import "GameCenterManager.h"
+
+#import <GameKit/GameKit.h>
+
 @interface GameScene : SKScene
 
 @property (nonatomic, strong) Board *board;

@@ -51,6 +51,10 @@
     [self.skView presentScene:scene];
 }
 
+- (IBAction)presentMatchMakingVC:(id)sender {
+    [[GCTurnBasedMatchHelper sharedInstance] findMatchWithNumberOfPlayers:2 withViewController:self];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

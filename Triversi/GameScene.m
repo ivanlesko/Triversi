@@ -50,7 +50,15 @@
                 if ([touchedPiece.touchableArea containsPoint:position]) {
                     
                     // Place a new piece at the given touch position.
-                    [self placeNewPieceForTouched:touchedPiece];
+//                    [self placeNewPieceForTouched:touchedPiece];
+                    NSLog(@"creation date: %@", [[[GCTurnBasedMatchHelper sharedInstance] currentMatch] creationDate]);
+                    NSLog(@"currentParticipant %@", [[[GCTurnBasedMatchHelper sharedInstance] currentMatch] currentParticipant]);
+                    NSLog(@"matchID: %@", [[[GCTurnBasedMatchHelper sharedInstance] currentMatch] matchID]);
+                    NSLog(@"message: %@", [[[GCTurnBasedMatchHelper sharedInstance] currentMatch] message]);
+                    NSLog(@"participants: %@", [[[GCTurnBasedMatchHelper sharedInstance] currentMatch] participants]);
+                    NSLog(@"status: %ld", (long)[[[GCTurnBasedMatchHelper sharedInstance] currentMatch] status]);
+                    NSLog(@"matchDataMaximumSize: %d", [[[GCTurnBasedMatchHelper sharedInstance] currentMatch] matchDataMaximumSize]);
+                    
                 }
             } else {
                 // piece already exists.

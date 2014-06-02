@@ -20,7 +20,7 @@
                                 <rect key="frame" x="38" y="924" width="183" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.83971925650000001" green="0.84344964109999998" blue="0.85464079479999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Create Match">
+                                <state key="normal" title="Find Match">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

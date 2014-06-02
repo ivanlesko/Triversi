@@ -61,7 +61,7 @@
     }
     
     newPiece.path = [[UIBezierPath acuteTriangleForDirection:direction] CGPath];
-    newPiece.lineWidth   = 1.0;
+    newPiece.lineWidth   = 0.1;
     newPiece.antialiased = YES;
     
     return newPiece;

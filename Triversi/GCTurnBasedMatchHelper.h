@@ -12,6 +12,7 @@
 @interface GCTurnBasedMatchHelper : NSObject <GKTurnBasedMatchmakerViewControllerDelegate>
 
 @property (nonatomic, strong) UIViewController *presentingViewController;
+@property (retain) GKTurnBasedMatch *currentMatch;
 
 + (GCTurnBasedMatchHelper *)sharedInstance;
 

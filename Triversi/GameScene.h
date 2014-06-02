@@ -7,13 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <GameKit/GameKit.h>
 #import "Board.h"
 #import "Game.h"
 #import "Scorezone.h"
-
 #import "GameCenterManager.h"
+#import "GCTurnBasedMatchHelper.h"
 
-#import <GameKit/GameKit.h>
 
 @interface GameScene : SKScene
 

@@ -24,27 +24,26 @@
 
 - (void)findMatchWithNumberOfPlayers:(int)number withViewController:(UIViewController *)viewController {
     // Game Center is not available so no reason to continue on.
-    if (![[GameCenterManager sharedManager] isGameCenterAvailable]) {
-        return;
-    } else {
-        self.presentingViewController = viewController;
-        
-        GKMatchRequest *request = [[GKMatchRequest alloc] init];
-        request.minPlayers = number;
-        request.maxPlayers = number;
-        
-        GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc] initWithMatchRequest:request];
-        mmvc.turnBasedMatchmakerDelegate = self;
-        mmvc.showExistingMatches = YES;
-        
-        [self.presentingViewController presentViewController:mmvc animated:YES completion:^{
-            // Any presenting completion code goes here.b
-        }];
-    }
+    if (![[GameCenterManager sharedManager] isGameCenterAvailable]) return;
+    
+    self.presentingViewController = viewController;
+    
+    GKMatchRequest *request = [[GKMatchRequest alloc] init];
+    request.minPlayers = number;
+    request.maxPlayers = number;
+    
+    GKTurnBasedMatchmakerViewController *mmvc = [[GKTurnBasedMatchmakerViewController alloc] initWithMatchRequest:request];
+    mmvc.turnBasedMatchmakerDelegate = self;
+    mmvc.showExistingMatches = YES;
+    
+    [self.presentingViewController presentViewController:mmvc animated:YES completion:^{
+        // Any presenting completion code goes here.b
+    }];
 }
 
 - (void)turnBasedMatchmakerViewController:(GKTurnBasedMatchmakerViewController *)viewController didFindMatch:(GKTurnBasedMatch *)match {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    self.currentMatch = match;
     NSLog(@"did find match, %@", match);
 }
 
